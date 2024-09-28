@@ -1,0 +1,62 @@
+{
+  "resourceType": "Bundle",
+  "id": "structureDefinitions",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://synapxe.sg/StructureDefinition/acp_patient",
+      "resource": {
+        "resourceType": "StructureDefinition",
+        "url": "http://synapxe.sg/StructureDefinition/acp_patient",
+        "name": "GetEnrollment",
+        "status": "draft",
+        "fhirVersion": "4.3.0",
+        "kind": "resource",
+        "abstract": false,
+        "type": "Patient",
+        "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+        "derivation": "constraint",
+        "differential": {
+          "element": [
+            {
+              "id": "Patient.birthDate",
+              "path": "Patient.birthDate",
+              "min": 1,
+              "max": "1"
+            },
+            {
+              "id": "Patient.extension",
+              "path": "Patient.extension",
+              "slicing": {
+                "discriminator": [
+                  {
+                    "type": "value",
+                    "path": "url"
+                  }
+                ],
+                "rules": "open"
+              },
+              "min": 1
+            },
+            {
+              "id": "Patient.extension:acp_citizenship",
+              "path": "Patient.extension",
+              "sliceName": "acp_citizenship",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Extension",
+                  "profile": [
+                    "http://synapxe.sg/extension/acp_citizenship"
+                  ]
+                }
+              ],
+              "isModifier": false
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

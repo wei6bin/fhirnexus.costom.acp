@@ -1,0 +1,76 @@
+@baseUrl=https://localhost:7207
+@applicationId=test-app
+
+GET {{baseUrl}}/Patient/3
+X-Ihis-SourceApplication: {{applicationId}}
+
+### update without create new version
+PUT {{baseUrl}}/Patient/3
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/json
+
+{
+  "resourceType": "Patient",
+  "id": "3",
+  "extension": [
+    {
+      "url": "http://synapxe.sg/extension/acp_citizenship",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://synapxe.sg/ValueSet/acp_citizenship",
+            "code": "LONG TERM SPECIAL PASS/ICA LETTER",
+            "display": "Long Term Special Pass/ICA Letter"
+          }
+        ]
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://synapxe.sg/acp_nric",
+      "value": "H789993Q"
+    }
+  ],
+  "name": [
+    {
+      "text": "Lai Samuell"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1985-02-26",
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "132",
+        "11",
+        "12"
+      ],
+      "state": "Delgreo",
+      "postalCode": "234567"
+    }
+  ]
+}
+
+### pagination
+POST {{baseUrl}}/Patient/_search
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/x-www-form-urlencoded
+
+identifier=H789993Q
+
+### search by gender with pagination
+POST {{baseUrl}}/Patient/_search
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/x-www-form-urlencoded
+
+gender=male&_skip=20&_count=10
+
+### search by name with modifier contains (currently not support)
+POST {{baseUrl}}/Patient/_search
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/x-www-form-urlencoded
+
+name:contains=Samue

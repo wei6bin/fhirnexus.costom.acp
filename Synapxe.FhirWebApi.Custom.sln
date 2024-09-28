@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Custom", "Synapxe.FhirWebApi.Custom\Synapxe.FhirWebApi.Custom\Synapxe.FhirWebApi.Custom.csproj", "{47AFBF6D-AC22-4099-80BF-5BBDEDE408DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Custom.IntegrationTests", "Synapxe.FhirWebApi.Custom\Synapxe.FhirWebApi.Custom.IntegrationTests\Synapxe.FhirWebApi.Custom.IntegrationTests.csproj", "{26703899-594D-4F27-A173-55E3D6E6FA58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47AFBF6D-AC22-4099-80BF-5BBDEDE408DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AFBF6D-AC22-4099-80BF-5BBDEDE408DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AFBF6D-AC22-4099-80BF-5BBDEDE408DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AFBF6D-AC22-4099-80BF-5BBDEDE408DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26703899-594D-4F27-A173-55E3D6E6FA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26703899-594D-4F27-A173-55E3D6E6FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26703899-594D-4F27-A173-55E3D6E6FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26703899-594D-4F27-A173-55E3D6E6FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0307DE1-D4F1-4971-AF6F-EDEBC11E06F6}
+	EndGlobalSection
+EndGlobal
