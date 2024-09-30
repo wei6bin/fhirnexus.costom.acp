@@ -12,20 +12,56 @@ Content-Type: application/json
 {
 	"resourceType": "Patient",
 	"id": "3",
-	"extension": [
-		{
-			"url": "http://synapxe.sg/extension/acp_citizenship",
-			"valueCodeableConcept": {
-				"coding": [
-					{
-						"system": "http://synapxe.sg/ValueSet/acp_citizenship",
-						"code": "LONG TERM SPECIAL PASS/ICA LETTER",
-						"display": "Long Term Special Pass/ICA Letter"
-					}
-				]
-			}
-		}
-	],
+  "extension": [
+    {
+      "url": "http://synapxe.sg/extension/acp_citizenship",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://synapxe.sg/ValueSet/acp_citizenship",
+            "code": "LONG TERM SPECIAL PASS/ICA LETTER",
+            "display": "Long Term Special Pass/ICA Letter"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://synapxe.sg/extension/acp_maritalstatus",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://synapxe.sg/ValueSet/acp_maritalstatus",
+            "code": "SEPARATED",
+            "display": "Separated"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://synapxe.sg/extension/acp_race",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://synapxe.sg/ValueSet/acp_race",
+            "code": "CHINESE",
+            "display": "Chinese"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://synapxe.sg/extension/acp_religion",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://synapxe.sg/ValueSet/acp_religion",
+            "code": "OTHERS",
+            "display": "Others"
+          }
+        ]
+      }
+    }
+  ],
 	"identifier": [
 		{
 			"system": "http://synapxe.sg/acp_nric",

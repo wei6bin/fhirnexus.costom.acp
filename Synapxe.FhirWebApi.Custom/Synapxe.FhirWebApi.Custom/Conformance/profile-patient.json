@@ -50,6 +50,54 @@
               "isModifier": false
             },
             {
+              "id": "Patient.extension:acp_maritalstatus",
+              "path": "Patient.extension",
+              "sliceName": "acp_maritalstatus",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Extension",
+                  "profile": [
+                    "http://synapxe.sg/extension/acp_maritalstatus"
+                  ]
+                }
+              ],
+              "isModifier": false
+            },
+            {
+              "id": "Patient.extension:acp_race",
+              "path": "Patient.extension",
+              "sliceName": "acp_race",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Extension",
+                  "profile": [
+                    "http://synapxe.sg/extension/acp_race"
+                  ]
+                }
+              ],
+              "isModifier": false
+            },
+            {
+              "id": "Patient.extension:acp_religion",
+              "path": "Patient.extension",
+              "sliceName": "acp_religion",
+              "min": 0,
+              "max": "1",
+              "type": [
+                {
+                  "code": "Extension",
+                  "profile": [
+                    "http://synapxe.sg/extension/acp_religion"
+                  ]
+                }
+              ],
+              "isModifier": false
+            },
+            {
               "id": "Patient.birthDate",
               "path": "Patient.birthDate",
               "min": 1,

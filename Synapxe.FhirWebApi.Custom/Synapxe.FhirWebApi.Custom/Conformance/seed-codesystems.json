@@ -1,0 +1,91 @@
+{
+  "resourceType": "Bundle",
+  "id": "codeSystems",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://synapxe.sg/CodeSystem/citizenship",
+      "resource": {
+        "resourceType": "CodeSystem",
+        "id": "acp_citizenship",
+        "url": "http://synapxe.sg/CodeSystem/citizenship",
+        "version": "1.0.0",
+        "name": "ACP_Citizenship",
+        "status": "active",
+        "date": "2024-09-19",
+        "publisher": "Synapxe",
+        "description": "A code system created by ACP team for demonstration purpose",
+        "content": "not-present",
+        "contact": [
+          {
+            "name": "ACP Team"
+          }
+        ],
+        "valueSet": "http://synapxe.sg/ValueSet/acp_citizenship"
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/CodeSystem/maritalstatus",
+      "resource": {
+        "resourceType": "CodeSystem",
+        "id": "acp_maritalstatus",
+        "url": "http://synapxe.sg/CodeSystem/maritalstatus",
+        "version": "1.0.0",
+        "name": "ACP_MaritalStatus",
+        "status": "active",
+        "date": "2024-09-19",
+        "publisher": "Synapxe",
+        "description": "A code system created by ACP team for demonstration purpose",
+        "content": "not-present",
+        "contact": [
+          {
+            "name": "ACP Team"
+          }
+        ],
+        "valueSet": "http://synapxe.sg/ValueSet/acp_maritalstatus"
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/CodeSystem/race",
+      "resource": {
+        "resourceType": "CodeSystem",
+        "id": "acp_race",
+        "url": "http://synapxe.sg/CodeSystem/race",
+        "version": "1.0.0",
+        "name": "ACP_Race",
+        "status": "active",
+        "date": "2024-09-19",
+        "publisher": "Synapxe",
+        "description": "A code system created by ACP team for demonstration purpose",
+        "content": "not-present",
+        "contact": [
+          {
+            "name": "ACP Team"
+          }
+        ],
+        "valueSet": "http://synapxe.sg/ValueSet/acp_race"
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/CodeSystem/religion",
+      "resource": {
+        "resourceType": "CodeSystem",
+        "id": "acp_religion",
+        "url": "http://synapxe.sg/CodeSystem/religion",
+        "version": "1.0.0",
+        "name": "ACP_Religion",
+        "status": "active",
+        "date": "2024-09-19",
+        "publisher": "Synapxe",
+        "description": "A code system created by ACP team for demonstration purpose",
+        "content": "not-present",
+        "contact": [
+          {
+            "name": "ACP Team"
+          }
+        ],
+        "valueSet": "http://synapxe.sg/ValueSet/acp_religion"
+      }
+    }
+  ]
+}

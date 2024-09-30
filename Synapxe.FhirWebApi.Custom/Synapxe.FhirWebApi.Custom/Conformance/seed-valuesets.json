@@ -4,28 +4,6 @@
   "type": "collection",
   "entry": [
     {
-      "fullUrl": "http://synapxe.sg/CodeSystem/citizenship",
-      "resource": {
-        "resourceType": "CodeSystem",
-        "id": "acp_citizenship",
-        "url": "http://synapxe.sg/CodeSystem/citizenship",
-        "version": "1.0.0",
-        "name": "FhirNexus appointment category",
-        "title": "FhirNexus appointment category",
-        "status": "active",
-        "date": "2024-09-19",
-        "publisher": "Synapxe",
-        "description": "A code system created by FhirNexus team for demonstration purpose",
-        "content": "not-present",
-        "contact": [
-          {
-            "name": "FhirNexus Team"
-          }
-        ],
-        "valueSet": "http://synapxe.sg/ValueSet/acp_citizenship"
-      }
-    },
-    {
       "fullUrl": "http://synapxe.sg/ValueSet/acp_citizenship",
       "resource": {
         "resourceType": "ValueSet",
@@ -50,6 +28,116 @@
                 {
                   "code": "LONG TERM SPECIAL PASS/ICA LETTER",
                   "display": "Long Term Special Pass/ICA Letter"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/ValueSet/acp_maritalstatus",
+      "resource": {
+        "resourceType": "ValueSet",
+        "url": "http://synapxe.sg/ValueSet/acp_maritalstatus",
+        "name": "Acp_MaritalStatus",
+        "status": "active",
+        "compose": {
+          "include": [
+            {
+              "system": "http://synapxe.sg/ValueSet/acp_maritalstatus",
+              "concept": [
+                {
+                  "code": "DIVORCED",
+                  "display": "Divorced"
+                },
+                {
+                  "code": "MARRIED",
+                  "display": "Married"
+                },
+                {
+                  "code": "SEPARATED",
+                  "display": "Separated"
+                },
+                {
+                  "code": "SINGLE",
+                  "display": "Single"
+                },
+                {
+                  "code": "WIDOWED",
+                  "display": "Widowed"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/ValueSet/acp_race",
+      "resource": {
+        "resourceType": "ValueSet",
+        "url": "http://synapxe.sg/ValueSet/acp_race",
+        "name": "Acp_Race",
+        "status": "active",
+        "compose": {
+          "include": [
+            {
+              "system": "http://synapxe.sg/ValueSet/acp_race",
+              "concept": [
+                {
+                  "code": "CHINESE",
+                  "display": "Chinese"
+                },
+                {
+                  "code": "MALAY",
+                  "display": "Malay"
+                },
+                {
+                  "code": "INDIAN",
+                  "display": "Indian"
+                },
+                {
+                  "code": "OTHERS",
+                  "display": "Others"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "http://synapxe.sg/ValueSet/acp_religion",
+      "resource": {
+        "resourceType": "ValueSet",
+        "url": "http://synapxe.sg/ValueSet/acp_religion",
+        "name": "Acp_Religion",
+        "status": "active",
+        "compose": {
+          "include": [
+            {
+              "system": "http://synapxe.sg/ValueSet/acp_religion",
+              "concept": [
+                {
+                  "code": "BUDDHISM",
+                  "display": "Buddhism"
+                },
+                {
+                  "code": "CHRISTIANITY",
+                  "display": "Christianity"
+                },
+                {
+                  "code": "ISLAM",
+                  "display": "Islam"
+                },
+                {
+                  "code": "HINDUISM",
+                  "display": "Hinduism"
+                },
+                {
+                  "code": "OTHERS",
+                  "display": "Others"
                 }
               ]
             }

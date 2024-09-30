@@ -14,6 +14,6 @@ namespace Synapxe.FhirWebApi.Custom.Data
         }
 
         public DbSet<AppointmentModel> Appointments => Set<AppointmentModel>();
-        public DbSet<PatientModel> PatientFHIR => Set<PatientModel>();
+        public DbSet<PatientModel> Patient => Set<PatientModel>();
     }
 }

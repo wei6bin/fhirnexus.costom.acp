@@ -43,7 +43,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
 
         private async Task<SearchResult> SearchPatient(IReadOnlyList<(string, string)> queryParameters, CancellationToken cancellationToken)
         {
-            IQueryable<PatientModel> query = dbContext.PatientFHIR;
+            IQueryable<PatientModel> query = dbContext.Patient;
             int pageCount = 10;
             int skip = 0;
             var unsupported = new List<(string, string)>();
