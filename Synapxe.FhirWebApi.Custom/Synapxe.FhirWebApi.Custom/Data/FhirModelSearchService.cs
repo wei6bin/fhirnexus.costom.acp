@@ -88,7 +88,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
                     "actor" => query.WhereAny(value, str => x => x.Patient == str || x.Location == str || x.Practitioner == str, modifier),
                     "date" => query.WherePartialDateTimeMatch(value, x => x.Start!.Value, x => x.End!.Value, modifier),
                     KnownQueryParameterNames.LastUpdated => query.WherePartialDateTimeMatch(value, x => x.LastUpdated!.Value, modifier),
-                    KnownQueryParameterNames.Id when long.TryParse(value, out var idguid) => query.Where(x => x.Id == idguid),
+                    KnownQueryParameterNames.Id when Guid.TryParse(value, out var idguid) => query.Where(x => x.Id == idguid),
                     KnownQueryParameterNames.Id => query.Where(x => false),
                     KnownQueryParameterNames.Sort => query.OrderByFhir(value, builder => builder.OrderFor(KnownQueryParameterNames.LastUpdated, e => e.LastUpdated)),
                     _ => query.AddUnsupportedSearchParameter(unsupported, searchParam + modifier, value),

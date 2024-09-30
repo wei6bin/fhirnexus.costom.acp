@@ -2,7 +2,7 @@
 
 The demo here is to connect PatientFHIR table (created based on the Patient table), and expose it as a FHIR resource. The existing table structure is modified to include the FHIR specific fields.
 
-### Step 1: Create a new project
+### Step 1: Alter existing table to include FHIR specific fields
 
 ```sql
 SELECT *
@@ -14,7 +14,6 @@ ALTER TABLE [dbo].[PatientFHIR] ADD [TimeStamp] [varbinary](max) NULL
 ALTER TABLE [dbo].[PatientFHIR] ADD [LastUpdated] [datetimeoffset](7) NULL
 ALTER TABLE [dbo].[PatientFHIR] ADD [IsHistory] [bit] NOT NULL DEFAULT 0
 
-EXEC sp_rename 'dbo.PatientFHIR.OID', 'Id', 'COLUMN'
 ```
 
 ### Step 2: Create a new project with Custom data store, refer to current project

@@ -10,48 +10,48 @@ X-Ihis-SourceApplication: {{applicationId}}
 Content-Type: application/json
 
 {
-  "resourceType": "Patient",
-  "id": "3",
-  "extension": [
-    {
-      "url": "http://synapxe.sg/extension/acp_citizenship",
-      "valueCodeableConcept": {
-        "coding": [
-          {
-            "system": "http://synapxe.sg/ValueSet/acp_citizenship",
-            "code": "LONG TERM SPECIAL PASS/ICA LETTER",
-            "display": "Long Term Special Pass/ICA Letter"
-          }
-        ]
-      }
-    }
-  ],
-  "identifier": [
-    {
-      "system": "http://synapxe.sg/acp_nric",
-      "value": "H789993Q"
-    }
-  ],
-  "name": [
-    {
-      "text": "Lai Samuell"
-    }
-  ],
-  "gender": "male",
-  "birthDate": "1985-02-26",
-  "deceasedBoolean": false,
-  "address": [
-    {
-      "use": "home",
-      "line": [
-        "132",
-        "11",
-        "12"
-      ],
-      "state": "Delgreo",
-      "postalCode": "234567"
-    }
-  ]
+	"resourceType": "Patient",
+	"id": "3",
+	"extension": [
+		{
+			"url": "http://synapxe.sg/extension/acp_citizenship",
+			"valueCodeableConcept": {
+				"coding": [
+					{
+						"system": "http://synapxe.sg/ValueSet/acp_citizenship",
+						"code": "LONG TERM SPECIAL PASS/ICA LETTER",
+						"display": "Long Term Special Pass/ICA Letter"
+					}
+				]
+			}
+		}
+	],
+	"identifier": [
+		{
+			"system": "http://synapxe.sg/acp_nric",
+			"value": "H789993Q"
+		}
+	],
+	"name": [
+		{
+			"text": "Lai Samuell"
+		}
+	],
+	"gender": "male",
+	"birthDate": "1985-02-26",
+	"deceasedBoolean": false,
+	"address": [
+		{
+			"use": "home",
+			"line": [
+				"132",
+				"11",
+				"12"
+			],
+			"state": "Delgreo",
+			"postalCode": "234567"
+		}
+	]
 }
 
 ### pagination

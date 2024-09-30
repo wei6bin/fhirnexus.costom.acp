@@ -100,7 +100,7 @@
               "documentation": "Searches the appointment resource."
             }
           ],
-          //"versioning": "versioned"
+          "versioning": "no-version"
         },
         {
           "type": "Appointment",

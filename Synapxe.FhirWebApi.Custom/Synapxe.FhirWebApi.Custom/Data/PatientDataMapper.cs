@@ -7,10 +7,11 @@ namespace Synapxe.FhirWebApi.Custom.Data;
 public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
 {
     private readonly string IdentifierSystem_NRIC = "http://synapxe.sg/acp_nric";
-    private readonly string IdentifierSystem_Citizenship = "http://synapxe.sg/acp_citizenship";
-    private readonly string IdentifierSystem_MaritalStatus = "http://synapxe.sg/acp_maritalstatus";
-    private readonly string IdentifierSystem_Race = "http://synapxe.sg/acp_race";
-    private readonly string IdentifierSystem_Religion = "http://synapxe.sg/acp_religion";
+
+    private readonly string ValueSetSystem_Citizenship = "http://synapxe.sg/ValueSet/acp_citizenship";
+    private readonly string ValueSetSystem_MaritalStatus = "http://synapxe.sg/ValueSet/acp_maritalstatus";
+    private readonly string ValueSetSystem_Race = "http://synapxe.sg/ValueSet/acp_race";
+    private readonly string ValueSetSystem_Religion = "http://synapxe.sg/ValueSet/acp_religion";
 
     private readonly string Extension_Citizenship = "http://synapxe.sg/extension/acp_citizenship";
     private readonly string Extension_MaritalStatus = "http://synapxe.sg/extension/acp_maritalstatus";
@@ -22,11 +23,6 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
         var patient = new Patient
         {
             Id = model.Id.ToString(),
-            Meta = new Meta
-            {
-                VersionId = model.VersionId.ToString(),
-                LastUpdated = model.LastUpdated,
-            },
             Name = [new HumanName { Text = model.Name }],
             Gender = EnumHelper.ParseLiteral<AdministrativeGender>(model.Gender),
             BirthDate = new FhirDateTime(model.DateofBirth).ToString(),
@@ -48,7 +44,7 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
                         [
                             new Coding
                             {
-                                System = IdentifierSystem_Citizenship,
+                                System = ValueSetSystem_Citizenship,
                                 Code = model.CitizenshipCode,
                                 Display = model.CitizenshipName
                             },
@@ -88,7 +84,7 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
                     [
                         new Coding
                         {
-                            System = IdentifierSystem_MaritalStatus,
+                            System = ValueSetSystem_MaritalStatus,
                             Code = model.MartialStatusCode,
                             Display = model.MartialStatusName
                         },
@@ -108,7 +104,7 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
                     [
                         new Coding
                         {
-                            System = IdentifierSystem_Race,
+                            System = ValueSetSystem_Race,
                             Code = model.RaceCode,
                             Display = model.RaceName
                         }
@@ -128,7 +124,7 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
                     [
                         new Coding
                         {
-                            System = IdentifierSystem_Religion,
+                            System = ValueSetSystem_Religion,
                             Code = model.ReligionCode,
                             Display = model.ReligionName
                         }
@@ -145,8 +141,6 @@ public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
         var patientModel = new PatientModel
         {
             Id = long.TryParse(resource.Id, out long resourceId) ? resourceId : default,
-            VersionId = int.TryParse(resource.VersionId, out var vid) ? vid : 0,
-            LastUpdated = resource.Meta?.LastUpdated,
             Name = resource.Name.FirstOrDefault()?.Text,
             NRIC = resource.Identifier.FirstOrDefault(x => x.System == IdentifierSystem_NRIC)?.Value,
             DateofBirth = DateTime.Parse(resource.BirthDate),

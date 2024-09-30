@@ -11,7 +11,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
         {
             return new AppointmentModel
             {
-                Id = long.TryParse(appointment.Id, out long resourceId) ? resourceId : default,
+                Id = Guid.Parse(appointment.Id),
                 VersionId = int.TryParse(appointment.VersionId, out var vid) ? vid : 0,
                 LastUpdated = appointment.Meta?.LastUpdated,
                 Tag = appointment.Meta?.Tag.Select(x => x.Code).FirstOrDefault(),
@@ -36,7 +36,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
         {
             var appointment = new Appointment
             {
-                Id = data.Id.ToString(),
+                Id = data.Id.ToString("N").ToUpper(),
                 Meta = new Meta
                 {
                     VersionId = data.VersionId.ToString(),

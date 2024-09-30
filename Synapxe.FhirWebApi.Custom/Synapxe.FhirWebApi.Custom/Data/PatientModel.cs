@@ -7,15 +7,25 @@ using Microsoft.EntityFrameworkCore;
 namespace Synapxe.FhirWebApi.Custom.Data
 {
     [FhirType("Patient", IsResource = true)]
-    [PrimaryKey(nameof(Id), nameof(VersionId))]
+    [PrimaryKey(nameof(Id))]
     public class PatientModel : IResourceEntity<long>
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("OID")]
         public long Id { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public int? VersionId { get; set; }
 
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
         public bool IsHistory { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public DateTimeOffset? LastUpdated { get; set; }
+
+        [Timestamp]
+        [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+        public byte[]? TimeStamp { get; set; }
 
         public string? Name { get; set; }
 
@@ -29,10 +39,6 @@ namespace Synapxe.FhirWebApi.Custom.Data
 
         public DateTime DateofBirth { get; set; }
 
-        public DateTimeOffset? LastUpdated { get; set; }
-
-        [Timestamp]
-        public byte[]? TimeStamp { get; set; }
 
         public string? MartialStatusCode { get; set; }
 

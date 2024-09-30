@@ -7,10 +7,9 @@ namespace Synapxe.FhirWebApi.Custom.Data
 {
     [FhirType("Appointment", IsResource = true)]
     [PrimaryKey(nameof(Id), nameof(VersionId))]
-    public class AppointmentModel : IResourceEntity<long>
+    public class AppointmentModel : IResourceEntity<Guid>
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public Guid Id { get; set; }
 
         public int? VersionId { get; set; }
 
