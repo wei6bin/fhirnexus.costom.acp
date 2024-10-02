@@ -54,16 +54,8 @@ public class FormQuestion_MA
 
 //public class Question_MA
 //{
-//    public string? LinkId { get; set; }
-
-//    public string? Text { get; set; }
-
-//    public string? Type { get; set; }
 //}
 
 //public class QuestionOption_MA
 //{
-//    public string? Value { get; set; }
-
-//    public string? Display { get; set; }
 //}

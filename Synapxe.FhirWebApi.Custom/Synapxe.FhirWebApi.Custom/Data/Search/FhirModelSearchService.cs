@@ -107,7 +107,7 @@ namespace Synapxe.FhirWebApi.Custom.Data.Search
 
         private async Task<SearchResult> SearchQuestionnaire(IReadOnlyList<(string, string)> queryParameters, CancellationToken cancellationToken)
         {
-            IQueryable<QuestionnaireModel> query = dbContext.FormQuestionnaire;
+            IQueryable<QuestionnaireModel> query = dbContext.Questionnaire;
             int pageCount = 10;
             int skip = 0;
             var unsupported = new List<(string, string)>();
@@ -117,6 +117,7 @@ namespace Synapxe.FhirWebApi.Custom.Data.Search
                 query = searchParam switch
                 {
                     "status" => query.WhereAny(value, str => x => true, modifier),
+                    "name" => query.WhereAny(value, str => x => x.FormType == str, modifier),
                     KnownQueryParameterNames.LastUpdated => query.WherePartialDateTimeMatch(value, x => x.LastUpdated!.Value, modifier),
                     KnownQueryParameterNames.Id when long.TryParse(value, out var idguid) => query.Where(x => x.Id == idguid),
                     KnownQueryParameterNames.Id => query.Where(x => false),

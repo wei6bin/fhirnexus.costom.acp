@@ -5,5 +5,5 @@ GET {{baseUrl}}/Questionnaire/1
 X-Ihis-SourceApplication: {{applicationId}}
 
 ###
-GET {{baseUrl}}/Questionnaire?status=active
+GET {{baseUrl}}/Questionnaire?name=FORM_DS
 X-Ihis-SourceApplication: {{applicationId}}
