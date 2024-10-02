@@ -1,19 +1,38 @@
-﻿// -------------------------------------------------------------------------------------------------
-// Copyright (c) Integrated Health Information Systems Pte Ltd. All rights reserved.
-// -------------------------------------------------------------------------------------------------
+﻿using Microsoft.EntityFrameworkCore;
+using Synapxe.FhirWebApi.Custom.Data.Model;
 
-using Microsoft.EntityFrameworkCore;
+namespace Synapxe.FhirWebApi.Custom.Data;
 
-namespace Synapxe.FhirWebApi.Custom.Data
+public class FhirModelDbContext : DbContext
 {
-    public class FhirModelDbContext : DbContext
+    public FhirModelDbContext(DbContextOptions<FhirModelDbContext> options)
+        : base(options)
     {
-        public FhirModelDbContext(DbContextOptions<FhirModelDbContext> options)
-            : base(options)
-        {
-        }
+    }
 
-        public DbSet<AppointmentModel> Appointments => Set<AppointmentModel>();
-        public DbSet<PatientModel> Patient => Set<PatientModel>();
+    public DbSet<AppointmentModel> Appointment => Set<AppointmentModel>();
+    public DbSet<PatientModel> Patient => Set<PatientModel>();
+    public DbSet<QuestionnaireModel> FormQuestionnaire => Set<QuestionnaireModel>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        //modelBuilder.Entity<QuestionnaireModel>()
+        //    .OwnsMany(p => p.Questions, a =>
+        //    {
+        //        a.WithOwner().HasForeignKey("OID");
+        //        a.Property<long>("OID");
+        //        a.HasKey("OID");
+        //    })
+        //    .OwnsMany(p => p.QuestionOptions, a =>
+        //    {
+        //        a.WithOwner().HasForeignKey("OID");
+        //        a.Property<long>("OID");
+        //        a.HasKey("OID");
+        //    });
+        modelBuilder.Entity<QuestionnaireModel>()
+            .OwnsMany(p => p.FormQuestions, a =>
+            {
+                a.WithOwner().HasForeignKey("FormId");
+            });
     }
 }

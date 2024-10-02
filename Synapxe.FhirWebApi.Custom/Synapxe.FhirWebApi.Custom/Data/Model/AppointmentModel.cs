@@ -3,7 +3,7 @@ using Hl7.Fhir.Introspection;
 using Ihis.FhirEngine.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Synapxe.FhirWebApi.Custom.Data
+namespace Synapxe.FhirWebApi.Custom.Data.Model
 {
     [FhirType("Appointment", IsResource = true)]
     [PrimaryKey(nameof(Id), nameof(VersionId))]

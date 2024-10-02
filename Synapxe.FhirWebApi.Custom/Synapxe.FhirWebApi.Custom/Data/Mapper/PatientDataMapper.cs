@@ -1,8 +1,9 @@
 ﻿using Hl7.Fhir.Model;
 using Ihis.FhirEngine.Core.Handlers.Data;
 using Ihis.FhirEngine.Core.Utility;
+using Synapxe.FhirWebApi.Custom.Data.Model;
 
-namespace Synapxe.FhirWebApi.Custom.Data;
+namespace Synapxe.FhirWebApi.Custom.Data.Mapper;
 
 public sealed class PatientDataMapper : IFhirDataMapper<PatientModel, Patient>
 {

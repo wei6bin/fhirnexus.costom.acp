@@ -24,17 +24,19 @@
       "FhirDataStore<@Custom>": {
         "ContextType": "Synapxe.FhirWebApi.Custom.Data.FhirModelDbContext",
         "UseSqlRelationalModels": {
-          "SearchServiceType": "Synapxe.FhirWebApi.Custom.Data.FhirModelSearchService"
+          "SearchServiceType": "Synapxe.FhirWebApi.Custom.Data.Search.FhirModelSearchService"
         },
         "UseDataMapper": [
-          "Synapxe.FhirWebApi.Custom.Data.AppointmentDataMapper",
-          "Synapxe.FhirWebApi.Custom.Data.PatientDataMapper"
+          "Synapxe.FhirWebApi.Custom.Data.Mapper.AppointmentDataMapper",
+          "Synapxe.FhirWebApi.Custom.Data.Mapper.PatientDataMapper",
+          "Synapxe.FhirWebApi.Custom.Data.Mapper.QuestionnaireDataMapper"
         ],
         "ConnectionString": "Local",
         "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
         "AcceptedTypes": [
           "Appointment",
-          "Patient"
+          "Patient",
+          "Questionnaire",
         ]
       }
     }

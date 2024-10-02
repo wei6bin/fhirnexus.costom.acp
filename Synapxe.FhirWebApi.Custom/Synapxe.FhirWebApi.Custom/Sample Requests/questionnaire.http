@@ -1,0 +1,9 @@
+@baseUrl=https://localhost:7207
+@applicationId=test-app
+
+GET {{baseUrl}}/Questionnaire/1
+X-Ihis-SourceApplication: {{applicationId}}
+
+###
+GET {{baseUrl}}/Questionnaire?status=active
+X-Ihis-SourceApplication: {{applicationId}}

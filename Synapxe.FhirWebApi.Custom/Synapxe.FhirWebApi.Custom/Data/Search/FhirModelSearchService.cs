@@ -4,9 +4,9 @@ using Ihis.FhirEngine.Core.Exceptions;
 using Ihis.FhirEngine.Core.Extensions;
 using Ihis.FhirEngine.Core.Handlers.Data;
 using Ihis.FhirEngine.Core.Search;
-using Microsoft.EntityFrameworkCore;
+using Synapxe.FhirWebApi.Custom.Data.Model;
 
-namespace Synapxe.FhirWebApi.Custom.Data
+namespace Synapxe.FhirWebApi.Custom.Data.Search
 {
     public class FhirModelSearchService : IContextSearchService<FhirModelDbContext>
     {
@@ -24,7 +24,8 @@ namespace Synapxe.FhirWebApi.Custom.Data
         public IEnumerable<string> AcceptedTypes { get; } =
         [
             "Appointment",
-            "Patient"
+            "Patient",
+            "Questionnaire"
         ];
 
         public async Task<SearchResult> SearchAsync(string resourceType, IReadOnlyList<(string, string)> queryParameters, bool isHistory, CancellationToken cancellationToken)
@@ -32,10 +33,11 @@ namespace Synapxe.FhirWebApi.Custom.Data
             switch (resourceType)
             {
                 case "Appointment":
-                        return await SearchAppointment(queryParameters, cancellationToken).ConfigureAwait(false);
+                    return await SearchAppointment(queryParameters, cancellationToken).ConfigureAwait(false);
                 case "Patient":
                     return await SearchPatient(queryParameters, cancellationToken).ConfigureAwait(false);
-
+                case "Questionnaire":
+                    return await SearchQuestionnaire(queryParameters, cancellationToken).ConfigureAwait(false);
                 default:
                     throw new InvalidSearchOperationException($"SearchService '{Id}' does not support the searching the resource type '{resourceType}'.");
             }
@@ -64,7 +66,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
                 };
             }
 
-            return await query.ToPagedSearchResultAsync<PatientModel, Hl7.Fhir.Model.Patient>(
+            return await query.ToPagedSearchResultAsync<PatientModel, Patient>(
                 dataMapperFactory,
                 pageCount,
                 skip,
@@ -74,7 +76,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
 
         private async Task<SearchResult> SearchAppointment(IReadOnlyList<(string, string)> queryParameters, CancellationToken cancellationToken)
         {
-            IQueryable<AppointmentModel> query = dbContext.Appointments;
+            IQueryable<AppointmentModel> query = dbContext.Appointment;
             int pageCount = 10;
             int skip = 0;
             var unsupported = new List<(string, string)>();
@@ -95,7 +97,7 @@ namespace Synapxe.FhirWebApi.Custom.Data
                 };
             }
 
-            return await query.ToPagedSearchResultAsync<AppointmentModel, Hl7.Fhir.Model.Appointment>(
+            return await query.ToPagedSearchResultAsync<AppointmentModel, Appointment>(
                 dataMapperFactory,
                 pageCount,
                 skip,
@@ -103,7 +105,35 @@ namespace Synapxe.FhirWebApi.Custom.Data
                 cancellationToken).ConfigureAwait(false);
         }
 
-        public Task<SearchResult> SearchCompartmentAsync(string compartmentType, string compartmentId, string? resourceType, IReadOnlyList<(string, string)> queryParameters, CancellationToken cancellationToken)
+        private async Task<SearchResult> SearchQuestionnaire(IReadOnlyList<(string, string)> queryParameters, CancellationToken cancellationToken)
+        {
+            IQueryable<QuestionnaireModel> query = dbContext.FormQuestionnaire;
+            int pageCount = 10;
+            int skip = 0;
+            var unsupported = new List<(string, string)>();
+
+            foreach (var (searchParam, modifier, value) in queryParameters.ProcessSearchParams(ref pageCount, ref skip))
+            {
+                query = searchParam switch
+                {
+                    "status" => query.WhereAny(value, str => x => true, modifier),
+                    KnownQueryParameterNames.LastUpdated => query.WherePartialDateTimeMatch(value, x => x.LastUpdated!.Value, modifier),
+                    KnownQueryParameterNames.Id when long.TryParse(value, out var idguid) => query.Where(x => x.Id == idguid),
+                    KnownQueryParameterNames.Id => query.Where(x => false),
+                    KnownQueryParameterNames.Sort => query.OrderByFhir(value, builder => builder.OrderFor(KnownQueryParameterNames.LastUpdated, e => e.LastUpdated)),
+                    _ => query.AddUnsupportedSearchParameter(unsupported, searchParam + modifier, value),
+                };
+            }
+
+            return await query.ToPagedSearchResultAsync<QuestionnaireModel, Questionnaire>(
+                dataMapperFactory,
+                pageCount,
+                skip,
+                unsupported,
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        public Task<SearchResult> SearchCompartmentAsync(string compartmentType, string compartmentId, string? resourceType, IReadOnlyList<(string Key, string Value)> queryParameters, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
