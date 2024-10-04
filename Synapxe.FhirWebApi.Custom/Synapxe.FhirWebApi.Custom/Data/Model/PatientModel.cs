@@ -37,7 +37,7 @@ public class PatientModel : IResourceEntity<long>
 
     public string? Gender { get; set; }
 
-    public DateTime DateofBirth { get; set; }
+    public DateTimeOffset DateofBirth { get; set; }
 
 
     public string? MartialStatusCode { get; set; }
@@ -54,7 +54,7 @@ public class PatientModel : IResourceEntity<long>
 
     public bool? IsPassedAway { get; set; }
 
-    public DateTime? PassedAwaydate { get; set; }
+    public DateTimeOffset? PassedAwaydate { get; set; }
 
     public string Block { get; set; }
     public string? Level { get; set; }

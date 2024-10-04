@@ -38,7 +38,7 @@
   "Handlers": {
     "Repository": {
       "FhirDataStore<@Custom>": {
-        "UseSqlRelationalModels": {
+        "UsePostgreSQLRelationalModels": {
           "AutoCreateTables": true
         }
       }

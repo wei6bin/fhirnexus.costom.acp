@@ -9,10 +9,10 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="Synapxe.FhirWebApi.Custom.IntegrationTests" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.1.1" />
-        <PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.1.1" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.1.1" />
-        <PackageReference Include="Ihis.FhirEngine.Data.Relational.SqlServer" Version="4.1.1" />
+        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Data.Relational.PostgreSQL" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0-dev-*" />
     </ItemGroup>
 
     <ItemGroup>

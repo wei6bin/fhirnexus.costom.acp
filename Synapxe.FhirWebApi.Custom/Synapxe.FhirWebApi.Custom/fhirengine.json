@@ -23,7 +23,7 @@
     "Repository": {
       "FhirDataStore<@Custom>": {
         "ContextType": "Synapxe.FhirWebApi.Custom.Data.FhirModelDbContext",
-        "UseSqlRelationalModels": {
+        "UsePostgreSQLRelationalModels": {
           "SearchServiceType": "Synapxe.FhirWebApi.Custom.Data.Search.FhirModelSearchService"
         },
         "UseDataMapper": [
@@ -36,7 +36,7 @@
         "AcceptedTypes": [
           "Appointment",
           "Patient",
-          "Questionnaire",
+          "Questionnaire"
         ]
       }
     }
