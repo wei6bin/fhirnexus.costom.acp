@@ -21,6 +21,10 @@ public class FhirModelDbContext : DbContext
             {
                 qmBuilder.WithOwner().HasForeignKey(x => x.QuestionnaireOID);
             })
+            .OwnsMany(qm => qm.WorksheetQuestions, qmBuilder =>
+            {
+                qmBuilder.WithOwner().HasForeignKey(x => x.QuestionnaireOID);
+            })
             .OwnsMany(qm => qm.Questions, qmBuilder =>
             {
                 qmBuilder.WithOwner().HasForeignKey(x => x.QuestionnaireOID);

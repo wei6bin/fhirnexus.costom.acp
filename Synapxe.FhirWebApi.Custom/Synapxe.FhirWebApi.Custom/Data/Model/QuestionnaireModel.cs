@@ -33,6 +33,8 @@ public class QuestionnaireModel : IResourceEntity<long>
 
     public ICollection<FormQuestion_MA> FormQuestions { get; set; }
 
+    public ICollection<WorksheetQuestion_MA> WorksheetQuestions { get; set; }
+
     public ICollection<Question_MA> Questions { get; set; }
 
     //public ICollection<QuestionOption_MA> QuestionOptions { get; set; }
@@ -54,6 +56,20 @@ public class FormQuestion_MA
     public string? DiseaseType { get; set; }
 
     public string? DiseaseTypeName { get; set; }
+}
+
+[Owned]
+public class WorksheetQuestion_MA
+{
+    [Column("OID")]
+    [Key]
+    public long Id { get; set; }
+
+    public long QuestionnaireOID { get; set; }
+
+    public string? WorksheetType { get; set; }
+
+    public string? WorksheetTypeName { get; set; }
 }
 
 [Owned]

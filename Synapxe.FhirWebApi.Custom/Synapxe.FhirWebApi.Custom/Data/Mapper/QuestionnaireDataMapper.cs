@@ -22,7 +22,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireModel, Quest
         return new QuestionnaireModel
         {
             Id = long.Parse(resource.Id),
-            FormType = PublicationStatus.Active.GetLiteral(),
+            FormType = resource.Title,
         };
     }
 }

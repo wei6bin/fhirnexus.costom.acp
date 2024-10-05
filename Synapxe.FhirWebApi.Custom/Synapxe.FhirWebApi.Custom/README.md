@@ -112,6 +112,27 @@ UPDATE Question_MA
 SET QuestionnaireOID = C.OID
 FROM Question_MA A INNER JOIN FormQuestion_MA B ON A.OID = B.QuestionOID
 	INNER JOIN Questionnaire C ON C.OID = B.QuestionnaireOID
+
+UPDATE Question_MA
+SET QuestionnaireOID = C.OID
+FROM Question_MA A INNER JOIN WorksheetQuestion_MA B ON A.OID = B.QuestionOID
+	INNER JOIN Questionnaire C ON C.OID = B.QuestionnaireOID
+```
+- query to check the overlap question records at Form and Worksheet level
+```sql
+WITH FirstQuery AS (
+select QuestionOID from Question_MA A INNER JOIN FormQuestion_MA B ON A.OID = B.QuestionOID
+	INNER JOIN Questionnaire C ON C.OID = B.QuestionnaireOID
+),
+SecondQuery AS
+(select QuestionOID from Question_MA A INNER JOIN WorksheetQuestion_MA B ON A.OID = B.QuestionOID
+	INNER JOIN Questionnaire C ON C.OID = B.QuestionnaireOID)
+
+	SELECT QuestionOID
+FROM FirstQuery
+INTERSECT
+SELECT QuestionOID
+FROM SecondQuery;
 ```
 - update the `capability-statement.json` to include the Questionnaire resource
 
