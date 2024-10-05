@@ -11,15 +11,23 @@ public class FhirModelDbContext : DbContext
     }
 
     public DbSet<AppointmentModel> Appointment => Set<AppointmentModel>();
-    public DbSet<PatientModel> Patient => Set<PatientModel>();
+    public DbSet<PatientModel> PatientFHIR => Set<PatientModel>();
     public DbSet<QuestionnaireModel> Questionnaire => Set<QuestionnaireModel>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<QuestionnaireModel>()
-            .OwnsMany(p => p.FormQuestions, a =>
+            .OwnsMany(qm => qm.FormQuestions, qmBuilder =>
             {
-                a.WithOwner().HasForeignKey("QuestionnaireOID");
+                qmBuilder.WithOwner().HasForeignKey(x => x.QuestionnaireOID);
+            })
+            .OwnsMany(qm => qm.Questions, qmBuilder =>
+            {
+                qmBuilder.WithOwner().HasForeignKey(x => x.QuestionnaireOID);
+                qmBuilder.OwnsMany(q => q.QuestionOptions, qBuilder =>
+                {
+                    qBuilder.WithOwner().HasForeignKey(x => x.QuestionOID);
+                });
             });
     }
 }

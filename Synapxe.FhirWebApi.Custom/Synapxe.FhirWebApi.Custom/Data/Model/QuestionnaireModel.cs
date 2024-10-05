@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Hl7.Fhir.Introspection;
 using Ihis.FhirEngine.Data.Models;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.EntityFrameworkCore;
 
 namespace Synapxe.FhirWebApi.Custom.Data.Model;
@@ -32,16 +33,19 @@ public class QuestionnaireModel : IResourceEntity<long>
 
     public ICollection<FormQuestion_MA> FormQuestions { get; set; }
 
-    //public ICollection<Question_MA> Questions { get; set; }
+    public ICollection<Question_MA> Questions { get; set; }
 
     //public ICollection<QuestionOption_MA> QuestionOptions { get; set; }
 }
 
+[Owned]
 public class FormQuestion_MA
 {
     [Column("OID")]
     [Key]
     public long Id { get; set; }
+
+    public long QuestionnaireOID { get; set; }
 
     public string? FormType { get; set; }
 
@@ -52,10 +56,29 @@ public class FormQuestion_MA
     public string? DiseaseTypeName { get; set; }
 }
 
-//public class Question_MA
-//{
-//}
+[Owned]
+public class Question_MA
+{
+    [Column("OID")]
+    [Key]
+    public long Id { get; set; }
 
-//public class QuestionOption_MA
-//{
-//}
+    public long QuestionnaireOID { get; set; }
+
+    public string? QuestionText { get; set; }
+
+    public ICollection<QuestionOption_MA> QuestionOptions { get; set; }
+}
+
+public class QuestionOption_MA
+{
+    [Column("OID")]
+    [Key]
+    public long Id { get; set; }
+
+    public long QuestionOID { get; set; }
+
+    public string? Type { get; set; }
+
+    public string? Text { get; set; }
+}

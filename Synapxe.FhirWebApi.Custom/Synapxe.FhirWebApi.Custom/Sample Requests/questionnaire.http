@@ -1,7 +1,7 @@
 @baseUrl=https://localhost:7207
 @applicationId=test-app
 
-GET {{baseUrl}}/Questionnaire/1
+GET {{baseUrl}}/Questionnaire/2
 X-Ihis-SourceApplication: {{applicationId}}
 
 ###

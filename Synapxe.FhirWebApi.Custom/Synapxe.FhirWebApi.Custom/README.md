@@ -70,6 +70,13 @@ GO
 ALTER TABLE [dbo].[FormQuestion_MA] ADD [QuestionnaireOID] [bigint] NULL;
 GO
 
+ALTER TABLE [dbo].[FormQuestion_MA]  WITH CHECK ADD  CONSTRAINT [FK_FormQuestion_Questionnaire] FOREIGN KEY([QuestionnaireOID])
+REFERENCES [dbo].[Questionnaire] ([OID])
+GO
+
+ALTER TABLE [dbo].[FormQuestion_MA] CHECK CONSTRAINT [FK_FormQuestion_Questionnaire]
+GO
+
 UPDATE [dbo].[FormQuestion_MA]
 SET [QuestionnaireOID] = CASE [FormType]
     WHEN 'GENERAL' THEN 1
@@ -89,6 +96,22 @@ SET [QuestionnaireOID] = CASE [WorksheetType]
 	WHEN 'PPC' THEN 6
 END
 WHERE [WorksheetType] IN ('GENERAL', 'DS', 'PPC');
+```
+- alter the `Question_MA` table to include the column `QuestionnaireOID`
+```sql
+ALTER TABLE Question_MA
+ADD QuestionnaireOID bigint;
+
+ALTER TABLE Question_MA
+ADD CONSTRAINT FK_Question_MA_Questionnaire
+FOREIGN KEY (QuestionnaireOID) REFERENCES Questionnaire(OID);
+```
+- update the `Question_MA` table column `FormQuestionOID` based on the `QuestionID` field and `OID` field of the `FormQuestion_MA` table.
+```sql
+UPDATE Question_MA
+SET QuestionnaireOID = C.OID
+FROM Question_MA A INNER JOIN FormQuestion_MA B ON A.OID = B.QuestionOID
+	INNER JOIN Questionnaire C ON C.OID = B.QuestionnaireOID
 ```
 - update the `capability-statement.json` to include the Questionnaire resource
 

@@ -8,7 +8,7 @@ namespace Synapxe.FhirWebApi.Custom.Data.Model;
 
 [FhirType("Patient", IsResource = true)]
 [PrimaryKey(nameof(Id))]
-public class PatientModel : IResourceEntity<long>
+public class PatientModel : IResourceEntity<long>, IAuditedEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("OID")]
@@ -26,6 +26,9 @@ public class PatientModel : IResourceEntity<long>
     [Timestamp]
     [System.ComponentModel.DataAnnotations.Schema.NotMapped]
     public byte[]? TimeStamp { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public bool IsDeleted { get; set; }
 
     public string? Name { get; set; }
 
@@ -61,4 +64,21 @@ public class PatientModel : IResourceEntity<long>
     public string? Unit { get; set; }
     public string Street { get; set; }
     public string PostalCode { get; set; }
+
+    [Column("CreatedOn")]
+    public DateTimeOffset? CreationDateTime { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public string? CreatedBy { get; set; }
+
+    [Column("ModifiedOn")]
+    public DateTimeOffset? ModificationDateTime { get; set; }
+
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public string? ModifiedBy { get; set; }
+
+    public string? CreatedByName { get; set; }
+
+    public string? ModifiedByName { get; set; }
+
 }
