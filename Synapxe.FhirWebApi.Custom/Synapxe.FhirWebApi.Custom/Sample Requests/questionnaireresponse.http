@@ -1,0 +1,155 @@
+
+@baseUrl=https://localhost:7207
+@applicationId=test-app
+
+
+POST {{baseUrl}}/QuestionnaireResponse
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/json
+{
+	"resourceType": "QuestionnaireResponse",
+	"questionnaire": "http://synapxe.sg/Questionnaire/FORM_DS",
+	"status": "completed",
+	"subject": 
+		{
+			"type": "Patient",
+			"reference": "Patient/1"
+		},
+	"authored": "2013-02-19T14:15:00+08:00",
+	"item": [
+		{
+			"linkId": "1",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-hq-smoking-quiz",
+						"code": "sq003"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "2",
+			"answer": [
+				{
+					"valueInteger": 2002
+				}
+			]
+		},
+		{
+			"linkId": "3",
+			"answer": [
+				{
+					"valueInteger": 5
+				}
+			]
+		},
+		{
+			"linkId": "4",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "5",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "6",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "7",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-hq-first-cigarette",
+						"code": "fc001"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "8",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "9",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-hq-cigarette-giveup",
+						"code": "cg002"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "10",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-hq-cigarette-no",
+						"code": "cn003"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "11",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "12",
+			"answer": [
+				{
+					"valueCoding": {
+						"system": "http://ihis.sg/ValueSet/hsg-yes-no",
+						"code": "yes"
+					}
+				}
+			]
+		},
+		{
+			"linkId": "13",
+			"answer": [
+				{
+					"valueInteger": 8
+				}
+			]
+		}
+	]
+}

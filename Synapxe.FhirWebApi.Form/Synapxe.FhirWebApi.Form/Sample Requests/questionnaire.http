@@ -1,0 +1,137 @@
+@baseUrl=https://localhost:7197
+@applicationId=test-app
+
+# @name createAppointmentRequest
+
+PUT {{baseUrl}}/Questionnaire/health-intake-form
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+	"resourceType": "Questionnaire",
+	"id": "health-intake-form",
+	"status": "active",
+	"title": "Patient Health Intake Form",
+	"description": "A general health intake form for new patients",
+	"purpose": "Gather basic health information from new patients",
+	"item": [
+		{
+			"linkId": "1",
+			"text": "Personal Information",
+			"type": "group",
+			"item": [
+				{
+					"linkId": "1.1",
+					"text": "Full Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"linkId": "1.2",
+					"text": "Date of Birth",
+					"type": "date",
+					"required": true
+				},
+				{
+					"linkId": "1.3",
+					"text": "Gender",
+					"type": "coding",
+					"answerOption": [
+						{
+							"valueCoding": {
+								"code": "male",
+								"display": "Male"
+							}
+						},
+						{
+							"valueCoding": {
+								"code": "female",
+								"display": "Female"
+							}
+						},
+						{
+							"valueCoding": {
+								"code": "other",
+								"display": "Other"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"linkId": "2",
+			"text": "Medical History",
+			"type": "group",
+			"item": [
+				{
+					"linkId": "2.1",
+					"text": "Do you have any chronic medical conditions?",
+					"type": "boolean"
+				},
+				{
+					"linkId": "2.2",
+					"text": "If yes, please specify:",
+					"type": "text",
+					"maxLength": 200,
+					"required": true,
+					"enableWhen": [
+						{
+							"question": "2.1",
+							"operator": "=",
+							"answerBoolean": true
+						}
+					]
+				},
+				{
+					"linkId": "2.3",
+					"text": "Current medications",
+					"type": "text"
+				}
+			]
+		},
+		{
+			"linkId": "3",
+			"text": "Family History",
+			"type": "group",
+			"item": [
+				{
+					"linkId": "3.1",
+					"text": "Select all conditions that run in your family:",
+					"type": "coding",
+					"repeats": true,
+					"answerOption": [
+						{
+							"valueCoding": {
+								"code": "heart-disease",
+								"display": "Heart Disease"
+							}
+						},
+						{
+							"valueCoding": {
+								"code": "diabetes",
+								"display": "Diabetes"
+							}
+						},
+						{
+							"valueCoding": {
+								"code": "cancer",
+								"display": "Cancer"
+							}
+						},
+						{
+							"valueCoding": {
+								"code": "hypertension",
+								"display": "Hypertension"
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
+
+###
+GET {{baseUrl}}/Questionnaire/health-intake-form
+X-Ihis-SourceApplication: {{applicationId}}

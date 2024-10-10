@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Custom",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Custom.IntegrationTests", "Synapxe.FhirWebApi.Custom\Synapxe.FhirWebApi.Custom.IntegrationTests\Synapxe.FhirWebApi.Custom.IntegrationTests.csproj", "{26703899-594D-4F27-A173-55E3D6E6FA58}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Form", "Synapxe.FhirWebApi.Form\Synapxe.FhirWebApi.Form\Synapxe.FhirWebApi.Form.csproj", "{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{26703899-594D-4F27-A173-55E3D6E6FA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26703899-594D-4F27-A173-55E3D6E6FA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26703899-594D-4F27-A173-55E3D6E6FA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

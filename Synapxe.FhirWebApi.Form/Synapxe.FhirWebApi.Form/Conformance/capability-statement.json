@@ -1,0 +1,102 @@
+{
+  "resourceType": "CapabilityStatement",
+  "version": "1.0.0",
+  "status": "draft",
+  "experimental": true,
+  "kind": "capability",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "application/fhir+json",
+    "json"
+  ],
+  "rest": [
+    {
+      "mode": "server",
+      "resource": [
+        {
+          "type": "CapabilityStatement",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Capability Statement."
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "OperationDefinition",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Operation Definition."
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "SearchParameter",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Search Parameter."
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "StructureDefinition",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Structure Definition."
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "ValueSet",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Structure Definition."
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "Questionnaire",
+          "interaction": [
+            {
+              "code": "read",
+              "documentation": "Returns the Questionnaire."
+            },
+            {
+              "code": "search-type",
+              "documentation": "Search for Questionnaires."
+            },
+            {
+              "code": "create",
+              "documentation": "Create a new Questionnaire."
+            },
+            {
+              "code": "update",
+              "documentation": "Update an existing Questionnaire."
+            },
+            {
+              "code": "delete",
+              "documentation": "Delete an existing Questionnaire."
+            },
+            {
+              "code": "history-instance",
+              "documentation": "Retrieve the change history for a Questionnaire."
+            },
+            {
+              "code": "history-type",
+              "documentation": "Retrieve the change history for all Questionnaires."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ public class FhirModelDbContext : DbContext
     public DbSet<AppointmentModel> Appointment => Set<AppointmentModel>();
     public DbSet<PatientModel> PatientFHIR => Set<PatientModel>();
     public DbSet<QuestionnaireModel> Questionnaire => Set<QuestionnaireModel>();
+    public DbSet<QuestionnaireResponseModel> QuestionnaireResponse => Set<QuestionnaireResponseModel>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -68,34 +68,64 @@
           "profile": "StructureDefinition/acp_patient",
           "interaction": [
             {
-              "code": "read",
+              "code": "read"
             },
             {
-              "code": "vread",
+              "code": "vread"
             },
             {
-              "code": "history-instance",
+              "code": "history-instance"
             },
             {
-              "code": "history-type",
+              "code": "history-type"
             },
             {
-              "code": "create",
+              "code": "create"
             },
             {
-              "code": "update",
+              "code": "update"
             },
             {
-              "code": "patch",
+              "code": "patch"
             },
             {
-              "code": "search-type",
+              "code": "search-type"
             }
           ],
           "versioning": "no-version"
         },
         {
           "type": "Questionnaire",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "history-instance"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "patch"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "no-version"
+        },
+        {
+          "type": "QuestionnaireResponse",
           "interaction": [
             {
               "code": "read"
