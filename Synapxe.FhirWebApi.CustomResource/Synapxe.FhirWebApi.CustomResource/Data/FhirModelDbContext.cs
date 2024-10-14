@@ -15,6 +15,7 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
         }
 
         public DbSet<AcpFormEntity> AcpQuestionnaire => Set<AcpFormEntity>();
+        public DbSet<AcpFormAnswerEntity> AcpFormAnswer => Set<AcpFormAnswerEntity>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

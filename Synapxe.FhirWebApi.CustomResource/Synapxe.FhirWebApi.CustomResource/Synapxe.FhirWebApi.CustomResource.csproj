@@ -23,10 +23,16 @@
 
     <ItemGroup>
       <AdditionalFiles Remove="Conformance\AcpForm.StructureDefinition.json" />
+      <AdditionalFiles Remove="Conformance\AcpFormAnswer.StructureDefinition.json" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Update="Conformance\AcpForm.StructureDefinition.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+      <Content Update="Conformance\AcpFormAnswer.StructureDefinition.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

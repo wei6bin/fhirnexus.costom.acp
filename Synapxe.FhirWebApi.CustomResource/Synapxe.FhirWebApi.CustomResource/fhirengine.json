@@ -6,7 +6,8 @@
     "Metadata": "Conformance",
     "Merge": true,
     "CustomResources": [
-      "Synapxe.FhirWebApi.CustomResource.Entities.AcpForm"
+      "Synapxe.FhirWebApi.CustomResource.Entities.AcpForm",
+      "Synapxe.FhirWebApi.CustomResource.Entities.AcpFormAnswer"
     ],
     "OpenTelemetryPrometheusMetrics": {
       "AspNetCoreInstrumentation": true
@@ -32,7 +33,7 @@
         "ConnectionString": "Local",
         "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
         "AcceptedTypes": [
-          "AcpForm"
+          "AcpForm", "AcpFormAnswer"
         ]
       }
     }

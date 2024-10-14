@@ -1,0 +1,77 @@
+@baseUrl=https://localhost:7130
+@applicationId=test-app
+
+POST {{baseUrl}}/AcpFormAnswer
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "AcpFormAnswer",
+	"OID": "123456789",
+	"CreatedOn": "2022-01-01T00:00:00Z",
+	"CreatedBy": "987654321",
+	"CreatedByName": "John Doe",
+	"ModifiedOn": "2022-01-02T00:00:00Z",
+	"ModifiedBy": "123456789",
+	"ModifiedByName": "Jane Smith",
+	"PatientOID": "987654321",
+	"IsHistory": false,
+	"Version": 1,
+	"StatusCode": "Active",
+	"StatusName": "Active",
+	"FormTypeCode": "ACPF",
+	"FormTypeName": "ACP Form",
+	"PlaceOfDocumentation": "Hospital",
+	"DateOfSession": "2022-01-03T00:00:00Z",
+	"ProgramName": "Program A",
+	"PatientHasSignCode": "Yes",
+	"PatientHasSignName": "Yes",
+	"PatientSigningDate": "2022-01-04T00:00:00Z",
+	"NHSIdentified": "Yes",
+	"IsPhysicianHasSigned": "Yes",
+	"PhysicianSignedDate": "2022-01-05T00:00:00Z",
+	"FacilitatorName": "Alice Johnson",
+	"FacilitatorNRIC": "S1234567A",
+	"FacilitatorDesignation": "Facilitator",
+	"FacilitatorEmail": "alice@example.com",
+	"FacilitatorSignedDate": "2022-01-06T00:00:00Z",
+	"FacilitatorInstitution": "Hospital A",
+	"LivingWellStatement": true,
+	"FollowupPlan": true,
+	"UploadedManualForm": false,
+	"SupportingOthers": true,
+	"SupportingOthersText": "Supporting others text",
+	"ACPContactNumber": "1234567890",
+	"PhysicianName": "Dr. Smith",
+	"PhysicianMCR": "MCR123456",
+	"IsDeleted": false,
+	"CreatedOrganizationCode": "ORG123",
+	"CreatedOrganizationName": "Organization A",
+	"ModifiedOrganizationCode": "ORG456",
+	"ModifiedOrganizationName": "Organization B",
+	"PublishedDate": "2022-01-07T00:00:00Z",
+	"PublishedBy": "987654321",
+	"PublishedByName": "John Doe",
+	"PublishedOrganizationCode": "ORG789",
+	"PublishedOrganizationName": "Organization C",
+	"FacilitatorFullNRIC": "S1234567A",
+	"CreatedOrganizationHCICode": "HCI123",
+	"ModifiedOrganizationHCICode": "HCI456",
+	"PublishedOrganizationHCICode": "HCI789",
+	"LastModifiedByEmail": "jane@example.com"
+}
+
+###
+POST {{baseUrl}}/AcpFormAnswer
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "AcpForm",
+  "formType": "test"
+}
+
+
+###
+GET {{baseUrl}}/AcpFormAnswer/0E382045539D4A66BB81C9AFC432CFEF
+X-Ihis-SourceApplication: {{applicationId}}

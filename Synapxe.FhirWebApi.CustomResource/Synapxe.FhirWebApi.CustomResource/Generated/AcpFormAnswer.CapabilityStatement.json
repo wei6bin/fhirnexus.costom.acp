@@ -1,0 +1,24 @@
+       
+        {
+          "type": "AcpFormAnswer",
+          //"profile": "StructureDefinition/AcpFormAnswer",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned",
+        }
+
