@@ -14,11 +14,13 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
         {
         }
 
-        public DbSet<AcpFormEntity> AcpForm => Set<AcpFormEntity>();
+        public DbSet<AcpFormEntity> AcpQuestionnaire => Set<AcpFormEntity>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.UseFhirConventions(this);
+            modelBuilder.Entity<AcpFormEntity>()
+                .Ignore(x => x.Contained);
         }
     }
 }

@@ -83,7 +83,7 @@
               "code": "search-type"
             }
           ],
-          "versioning": "versioned"
+          "versioning": "no-version"
         }
       ]
     }

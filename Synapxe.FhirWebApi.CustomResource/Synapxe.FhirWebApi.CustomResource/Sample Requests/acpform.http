@@ -7,9 +7,30 @@ Content-Type: application/fhir+json
 
 {
   "resourceType": "AcpForm",
-  "formType": "test"
+  "formType": "test",
+  "formQuestions": [
+    {
+      "oID": "1",
+      "questionnaireOID": "1",
+      "formType": "test",
+      "formTypeName": "test",
+      "diseaseType": "test",
+      "diseaseTypeName": "test"
+    }
+  ]
 }
 
 ###
-GET {{baseUrl}}/AcpForm/1
+POST {{baseUrl}}/AcpForm
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "AcpForm",
+  "formType": "test"
+}
+
+
+###
+GET {{baseUrl}}/AcpForm/0E382045539D4A66BB81C9AFC432CFEF
 X-Ihis-SourceApplication: {{applicationId}}
