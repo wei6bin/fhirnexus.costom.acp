@@ -14,10 +14,6 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
         {
         }
 
-        public DbSet<AppointmentModel> Appointments => Set<AppointmentModel>();
-
-        public DbSet<EducationModel> Education => Set<EducationModel>();
-
         public DbSet<AcpFormEntity> AcpForm => Set<AcpFormEntity>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

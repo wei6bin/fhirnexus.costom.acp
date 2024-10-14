@@ -6,7 +6,6 @@
     "Metadata": "Conformance",
     "Merge": true,
     "CustomResources": [
-      "Synapxe.FhirWebApi.CustomResource.Entities.Education",
       "Synapxe.FhirWebApi.CustomResource.Entities.AcpForm"
     ],
     "OpenTelemetryPrometheusMetrics": {
@@ -30,15 +29,9 @@
         "UseSqlRelationalModels": {
           "SearchServiceType": "Synapxe.FhirWebApi.CustomResource.Data.FhirModelSearchService"
         },
-        "UseDataMapper": [
-          "Synapxe.FhirWebApi.CustomResource.Data.EducationDataMapper",
-          "Synapxe.FhirWebApi.CustomResource.Data.AppointmentDataMapper",
-        ],
         "ConnectionString": "Local",
         "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
         "AcceptedTypes": [
-          "Education",
-          "Appointment",
           "AcpForm"
         ]
       }

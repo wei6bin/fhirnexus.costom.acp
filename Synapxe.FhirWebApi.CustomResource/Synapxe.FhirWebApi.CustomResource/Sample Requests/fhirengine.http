@@ -1,8 +1,6 @@
 @baseUrl=https://localhost:7130
 @applicationId=test-app
 
-### Metadata Request:
-
 GET {{baseUrl}}/metadata
 X-Ihis-SourceApplication: {{applicationId}}
       

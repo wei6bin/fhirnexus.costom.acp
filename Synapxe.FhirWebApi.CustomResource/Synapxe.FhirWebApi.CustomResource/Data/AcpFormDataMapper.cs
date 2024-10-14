@@ -3,14 +3,14 @@ using Synapxe.FhirWebApi.CustomResource.Entities;
 
 namespace Synapxe.FhirWebApi.CustomResource.Data;
 
-public class AcpFormDataMapper : IFhirDataMapper<AcpFormModel, AcpForm>
+public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
 {
-    public AcpForm Map(AcpFormModel resource)
+    public AcpForm Map(AcpFormEntity resource)
     {
         throw new NotImplementedException();
     }
 
-    public AcpFormModel ReverseMap(AcpForm resource)
+    public AcpFormEntity ReverseMap(AcpForm resource)
     {
         throw new NotImplementedException();
     }
