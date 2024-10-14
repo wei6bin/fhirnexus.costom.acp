@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Custom.I
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.Form", "Synapxe.FhirWebApi.Form\Synapxe.FhirWebApi.Form\Synapxe.FhirWebApi.Form.csproj", "{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.CustomResource", "Synapxe.FhirWebApi.CustomResource\Synapxe.FhirWebApi.CustomResource\Synapxe.FhirWebApi.CustomResource.csproj", "{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.CustomResource.Model", "Synapxe.FhirWebApi.CustomResource\Synapxe.FhirWebApi.CustomResource.Model\Synapxe.FhirWebApi.CustomResource.Model.csproj", "{16BDAE38-8A3B-4FE0-8233-94403388C7A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{841FA1D5-C747-4999-8E55-EC13B4D4CF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16BDAE38-8A3B-4FE0-8233-94403388C7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BDAE38-8A3B-4FE0-8233-94403388C7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BDAE38-8A3B-4FE0-8233-94403388C7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BDAE38-8A3B-4FE0-8233-94403388C7A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

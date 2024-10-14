@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="Conformance\*.StructureDefinition.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Synapxe.Fhir.CodeGeneration" Version="1.0.0-*" />
+	  <PackageReference Include="Ihis.FhirEngine.Data.Models" Version="4.2.0-dev-24255.3" />
+	  <PackageReference Include="Ihis.FhirEngine.Msbuild.Tasks" Version="4.2.0-dev-24255.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ihis.FhirEngine.R5" Version="4.2.0-dev-24255.3" />
+  </ItemGroup>
+
+</Project>
