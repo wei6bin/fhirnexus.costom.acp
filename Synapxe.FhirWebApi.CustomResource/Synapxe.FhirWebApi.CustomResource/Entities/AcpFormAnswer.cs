@@ -72,18 +72,18 @@ public partial class AcpFormAnswerEntity : ResourceEntity
     public string? PublishedOrganizationHCICode { get; set; }
     public string? LastModifiedByEmail { get; set; }
 
-    public List<FormAnswer> FormAnswers { get; set; } = new();
-    public List<FormExtension> FormExtensions { get; set; } = new();
-    public List<FormNHSContact> FormNHSContacts { get; set; } = new();
+    public List<FormAnswerComponent> FormAnswers { get; set; } = new();
+    public List<FormExtensionComponent> FormExtensions { get; set; } = new();
+    public List<FormNHSContactComponent> FormNHSContacts { get; set; } = new();
 
     [FhirType("AcpFormAnswer#FormAnswer")]
-    public class FormAnswer : BackboneEntity
+    public class FormAnswerComponent : BackboneEntity
     {
         public long OID { get; set; }
         public long FormOID { get; set; }
         public long FormQuestionOID { get; set; }
         public long QuestionOptionOID { get; set; }
-        public string Answer { get; set; }
+        public string? Answer { get; set; }
         public DateTimeOffset CreatedOn { get; set; }
         public long CreatedBy { get; set; }
         public string CreatedByName { get; set; }
@@ -93,7 +93,7 @@ public partial class AcpFormAnswerEntity : ResourceEntity
     }
 
     [FhirType("AcpFormAnswer#FormExtension")]
-    public class FormExtension : BackboneEntity
+    public class FormExtensionComponent : BackboneEntity
     {
         public long OID { get; set; }
         public long FormOID { get; set; }
@@ -114,7 +114,7 @@ public partial class AcpFormAnswerEntity : ResourceEntity
     }
 
     [FhirType("AcpFormAnswer#FormNHSContact")]
-    public class FormNHSContact : BackboneEntity
+    public class FormNHSContactComponent : BackboneEntity
     {
         public long OID { get; set; }
         public long FormOID { get; set; }

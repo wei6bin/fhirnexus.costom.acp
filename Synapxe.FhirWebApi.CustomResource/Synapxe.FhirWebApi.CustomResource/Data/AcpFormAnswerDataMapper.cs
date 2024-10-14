@@ -35,15 +35,25 @@ public class AcpFormAnswerDataMapper : IFhirDataMapper<AcpFormAnswerEntity, AcpF
             CreatedOrganizationName = resource.CreatedOrganizationName,
             ModifiedOrganizationCode = resource.ModifiedOrganizationCode,
             ModifiedOrganizationName = resource.ModifiedOrganizationName,
-            FormAnswers = resource.FormAnswers?.Select(q => new AcpFormAnswer.FormAnswer
+            FormAnswers = resource.FormAnswers?.Select(q => new AcpFormAnswer.FormAnswerComponent
+            {
+                OID = q.OID,
+                FormOID = q.FormOID,
+                FormQuestionOID = q.FormQuestionOID,
+                QuestionOptionOID = q.QuestionOptionOID,
+                Answer = q.Answer,
+                CreatedOn = q.CreatedOn,
+                CreatedBy = q.CreatedBy,
+                CreatedByName = q.CreatedByName,
+                ModifiedOn = q.ModifiedOn,
+                ModifiedBy = q.ModifiedBy,
+                ModifiedByName = q.ModifiedByName,
+            }).ToList(),
+            FormExtensions = resource.FormExtensions?.Select(q => new AcpFormAnswer.FormExtensionComponent
             {
                 OID = q.OID,
             }).ToList(),
-            FormExtensions = resource.FormExtensions?.Select(q => new AcpFormAnswer.FormExtension
-            {
-                OID = q.OID,
-            }).ToList(),
-            FormNHSContacts = resource.FormNHSContacts?.Select(q => new AcpFormAnswer.FormNHSContact
+            FormNHSContacts = resource.FormNHSContacts?.Select(q => new AcpFormAnswer.FormNHSContactComponent
             {
                 OID = q.OID,
             }).ToList(),
@@ -75,15 +85,25 @@ public class AcpFormAnswerDataMapper : IFhirDataMapper<AcpFormAnswerEntity, AcpF
             ModifiedOrganizationCode = resource.ModifiedOrganizationCode,
             ModifiedOrganizationName = resource.ModifiedOrganizationName,
 
-            FormAnswers = resource.FormAnswers?.Select(q => new AcpFormAnswerEntity.FormAnswer
+            FormAnswers = resource.FormAnswers?.Select(q => new AcpFormAnswerEntity.FormAnswerComponent
+            {
+                OID = q.OID ?? 0,
+                FormOID = q.FormOID ?? 0,
+                FormQuestionOID = q.FormQuestionOID ?? 0,
+                QuestionOptionOID = q.QuestionOptionOID ?? 0,
+                Answer = q.Answer,
+                CreatedOn = q.CreatedOn ?? throw new ArgumentNullException(),
+                CreatedBy = q.CreatedBy ?? 0,
+                CreatedByName = q.CreatedByName,
+                ModifiedOn = q.ModifiedOn ?? throw new ArgumentNullException(),
+                ModifiedBy = q.ModifiedBy ?? 0,
+                ModifiedByName = q.ModifiedByName,
+            }).ToList(),
+            FormExtensions = resource.FormExtensions?.Select(q => new AcpFormAnswerEntity.FormExtensionComponent
             {
                 OID = q.OID ?? 0,
             }).ToList(),
-            FormExtensions = resource.FormExtensions?.Select(q => new AcpFormAnswerEntity.FormExtension
-            {
-                OID = q.OID ?? 0,
-            }).ToList(),
-            FormNHSContacts = resource.FormNHSContacts?.Select(q => new AcpFormAnswerEntity.FormNHSContact
+            FormNHSContacts = resource.FormNHSContacts?.Select(q => new AcpFormAnswerEntity.FormNHSContactComponent
             {
                 OID = q.OID ?? 0,
             }).ToList(),
