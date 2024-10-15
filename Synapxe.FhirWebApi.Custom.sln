@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.CustomRe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Synapxe.FhirWebApi.CustomResource.Model", "Synapxe.FhirWebApi.CustomResource\Synapxe.FhirWebApi.CustomResource.Model\Synapxe.FhirWebApi.CustomResource.Model.csproj", "{16BDAE38-8A3B-4FE0-8233-94403388C7A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71ABB37C-4F2A-414E-9F02-1476F69CA583}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

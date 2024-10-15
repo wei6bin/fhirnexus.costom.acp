@@ -2,6 +2,7 @@
 // Copyright (c) Integrated Health Information Systems Pte Ltd. All rights reserved.
 // -------------------------------------------------------------------------------------------------
 
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
 using Synapxe.FhirWebApi.CustomResource.Entities;
 
@@ -26,22 +27,29 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
                 .Ignore(x => x.ModifierExtension)
                 .Ignore(x => x.Meta)
                 .Ignore(x => x.Text)
+                .Ignore(x => x.TimeStamp)
+                .Ignore(x => x.VersionId)
+                .Ignore(x => x.LastUpdated)
                 .OwnsMany(x => x.FormQuestions, fq => fq
-                    .ToTable("FormQuestions_MA")
+                    .ToTable("FormQuestion_MA")
+                    .Ignore(x => x.ElementId)
                     .Ignore(x => x.Extension)
-                    .Ignore(x => x.ModifierExtension))
-                .OwnsMany(x => x.Questions, q => q
-                .ToTable("Question_MA")
-                    .Ignore(x => x.Extension)
-                     .Ignore(x => x.ModifierExtension))
-                .OwnsMany(x => x.WorksheetQuestions, ws => ws
-                .ToTable("WorksheetQuestion_MA")
-                .Ignore(x => x.Extension)
-                      .Ignore(x => x.ModifierExtension))
-                .OwnsMany(x => x.QuestionOptions, qo => qo
-                .ToTable("QuestionOption_MA")
-                .Ignore(x => x.Extension)
-                      .Ignore(x => x.ModifierExtension));
+                    .Ignore(x => x.ModifierExtension));
+                //.OwnsMany(x => x.Questions, q => q
+                //    .ToTable("Question_MA")
+                //    .Ignore(x => x.ElementId)
+                //    .Ignore(x => x.Extension)
+                //    .Ignore(x => x.ModifierExtension))
+                //.OwnsMany(x => x.WorksheetQuestions, ws => ws
+                //    .ToTable("WorksheetQuestion_MA")
+                //    .Ignore(x => x.ElementId)
+                //    .Ignore(x => x.Extension)
+                //    .Ignore(x => x.ModifierExtension))
+                //.OwnsMany(x => x.QuestionOptions, qo => qo
+                //    .ToTable("QuestionOption_MA")
+                //    .Ignore(x => x.ElementId)
+                //    .Ignore(x => x.Extension)
+                //    .Ignore(x => x.ModifierExtension));
 
             modelBuilder.Entity<AcpFormAnswerEntity>()
                 .Ignore(x => x.Contained)
