@@ -7,7 +7,7 @@
   "status": "draft",
   "publisher": "Synapxe",
   "copyright": "Copyright (C) 2024 Synapxe",
-  "fhirVersion": "4.3.0",
+  "fhirVersion": "5.0.0",
   "kind": "resource",
   "abstract": false,
   "type": "AcpFormAnswer",

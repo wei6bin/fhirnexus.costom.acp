@@ -24,7 +24,7 @@ public partial class AcpFormEntity : ResourceEntity
 
     public List<QuestionOptionComponent> QuestionOptions { get; set; } = new();
 
-    [FhirType("AcpForm#FormQuestion")]
+    [FhirType("AcpForm#FormQuestion", IsNestedType = true)]
     public class FormQuestionComponent : BackboneEntity
     {
         public long OID { get; set; }
@@ -40,7 +40,7 @@ public partial class AcpFormEntity : ResourceEntity
         public string? DiseaseTypeName { get; set; }
     }
 
-    [FhirType("AcpForm#WorksheetQuestion")]
+    [FhirType("AcpForm#WorksheetQuestion", IsNestedType = true)]
     public class WorksheetQuestionComponent : BackboneEntity
     {
         public long OID { get; set; }
@@ -70,7 +70,7 @@ public partial class AcpFormEntity : ResourceEntity
         public string InfoHTML { get; set; }
     }
 
-    [FhirType("AcpForm#Question")]
+    [FhirType("AcpForm#Question", IsNestedType = true)]
     public class QuestionComponent : BackboneEntity
     {
         public long OID { get; set; }
@@ -86,7 +86,7 @@ public partial class AcpFormEntity : ResourceEntity
         public string? StyleText { get; set; }
     }
 
-    [FhirType("AcpForm#QuestionOption")]
+    [FhirType("AcpForm#QuestionOption", IsNestedType = true)]
     public class QuestionOptionComponent : BackboneEntity
     {
         public long OID { get; set; }

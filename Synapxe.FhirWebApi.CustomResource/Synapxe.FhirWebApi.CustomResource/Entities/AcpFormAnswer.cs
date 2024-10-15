@@ -76,7 +76,7 @@ public partial class AcpFormAnswerEntity : ResourceEntity
     public List<FormExtensionComponent> FormExtensions { get; set; } = new();
     public List<FormNHSContactComponent> FormNHSContacts { get; set; } = new();
 
-    [FhirType("AcpFormAnswer#FormAnswer")]
+    [FhirType("AcpFormAnswer#FormAnswer", IsNestedType = true)]
     public class FormAnswerComponent : BackboneEntity
     {
         public long OID { get; set; }
@@ -92,7 +92,7 @@ public partial class AcpFormAnswerEntity : ResourceEntity
         public string ModifiedByName { get; set; }
     }
 
-    [FhirType("AcpFormAnswer#FormExtension")]
+    [FhirType("AcpFormAnswer#FormExtension", IsNestedType = true)]
     public class FormExtensionComponent : BackboneEntity
     {
         public long OID { get; set; }
@@ -113,7 +113,7 @@ public partial class AcpFormAnswerEntity : ResourceEntity
         public string DiseaseOfConcernOther { get; set; }
     }
 
-    [FhirType("AcpFormAnswer#FormNHSContact")]
+    [FhirType("AcpFormAnswer#FormNHSContact", IsNestedType = true)]
     public class FormNHSContactComponent : BackboneEntity
     {
         public long OID { get; set; }
