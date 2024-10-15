@@ -83,6 +83,14 @@
               "code": "search-type"
             }
           ],
+          "searchParam": [
+            {
+              "name": "form-type",
+              "definition": "http://sypnapxe.sg/fhir/SearchParameter/AcpForm-type",
+              "type": "string",
+              "documentation": "Filters by active participant"
+            }
+          ],
           "versioning": "no-version"
         },
         {

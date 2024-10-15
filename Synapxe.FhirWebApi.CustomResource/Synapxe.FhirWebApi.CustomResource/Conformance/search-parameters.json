@@ -1,0 +1,29 @@
+{
+  "resourceType": "Bundle",
+  "id": "searchParameters",
+  "meta": {
+    "lastUpdated": "2021-05-05T08:04:45.3420489+00:00"
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://sypnapxe.sg/fhir/SearchParameter/AcpForm-type",
+      "resource": {
+        "resourceType": "SearchParameter",
+        "id": "AcpForm-type",
+        "url": "http://sypnapxe.sg/fhir/SearchParameter/AcpForm-type",
+        "version": "0.1.0",
+        "name": "AcpForm-type",
+        "status": "draft",
+        "experimental": false,
+        "date": "2021-01-01T09:29:23+11:00",
+        "publisher": "Synapxe Pte. Ltd.",
+        "description": "Who has accepted invitation",
+        "code": "form-type",
+        "base": [ "AcpForm" ],
+        "type": "string",
+        "expression": "AcpForm.formType"
+      }
+    }
+  ]
+}

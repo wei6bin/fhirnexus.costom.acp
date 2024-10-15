@@ -34,3 +34,7 @@ Content-Type: application/fhir+json
 ###
 GET {{baseUrl}}/AcpForm/18082E76-E1F4-455E-9936-D6EC6B6E684A
 X-Ihis-SourceApplication: {{applicationId}}
+
+###
+GET {{baseUrl}}/AcpForm?formType=FORM_GENERAL
+X-Ihis-SourceApplication: {{applicationId}}
