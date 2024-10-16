@@ -43,15 +43,15 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
             //    IsMandatory = q.IsMandatory,
             //    DisplayOrder = q.DisplayOrder
             //}).ToList(),
-            //Questions = resource.Questions?.Select(q => new AcpForm.QuestionComponent
-            //{
-            //    OID = q.OID,
-            //    QuestionText = q.QuestionText,
-            //    StatusCode = q.StatusCode,
-            //    StatusCodeName = q.StatusCodeName,
-            //    CSSText = q.CSSText,
-            //    StyleText = q.StyleText
-            //}).ToList(),
+            Questions = resource.Questions?.Select(q => new AcpForm.QuestionComponent
+            {
+                OID = q.OID,
+                QuestionText = q.QuestionText,
+                StatusCode = q.StatusCode,
+                StatusCodeName = q.StatusCodeName,
+                CSSText = q.CSSText,
+                StyleText = q.StyleText,
+            }).ToList(),
             //QuestionOptions = resource.QuestionOptions?.Select(q => new AcpForm.QuestionOptionComponent
             //{
             //    OID = q.OID,
@@ -90,15 +90,15 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
             //    IsMandatory = q.IsMandatory ?? false,
             //    DisplayOrder = q.DisplayOrder ?? 0
             //}).ToList() ?? new(),
-            //Questions = resource.Questions?.Select(q => new AcpFormEntity.QuestionComponent
-            //{
-            //    OID = q.OID ?? 0,
-            //    QuestionText = q.QuestionText,
-            //    StatusCode = q.StatusCode,
-            //    StatusCodeName = q.StatusCodeName,
-            //    CSSText = q.CSSText,
-            //    StyleText = q.StyleText
-            //}).ToList() ?? new(),
+            Questions = resource.Questions?.Select(q => new AcpFormEntity.QuestionComponent
+            {
+                OID = q.OID ?? 0,
+                QuestionText = q.QuestionText,
+                StatusCode = q.StatusCode,
+                StatusCodeName = q.StatusCodeName,
+                CSSText = q.CSSText,
+                StyleText = q.StyleText
+            }).ToList() ?? new(),
             //QuestionOptions = resource.QuestionOptions?.Select(q => new AcpFormEntity.QuestionOptionComponent
             //{
             //    OID = q.OID ?? 0,

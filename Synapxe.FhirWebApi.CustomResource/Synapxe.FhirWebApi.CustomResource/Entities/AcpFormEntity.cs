@@ -19,7 +19,7 @@ public partial class AcpFormEntity : ResourceEntity
 
     //public List<WorksheetQuestionComponent> WorksheetQuestions { get; set; } = new();
 
-    //public List<QuestionComponent> Questions { get; set; } = new();
+    public List<QuestionComponent> Questions { get; set; } = new();
 
     //public List<QuestionOptionComponent> QuestionOptions { get; set; } = new();
 
@@ -93,23 +93,23 @@ public partial class AcpFormEntity : ResourceEntity
     //    public string InfoHTML { get; set; }
     //}
 
-    //[FhirType("AcpForm#Question", IsNestedType = true)]
-    //public class QuestionComponent : BackboneEntity
-    //{
-    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    //    [Key]
-    //    public long OID { get; set; }
+    [FhirType("AcpForm#Question", IsNestedType = true)]
+    public class QuestionComponent : BackboneEntity
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public long OID { get; set; }
 
-    //    public string QuestionText { get; set; }
+        public string QuestionText { get; set; }
 
-    //    public string StatusCode { get; set; }
+        public string StatusCode { get; set; }
 
-    //    public string StatusCodeName { get; set; }
+        public string StatusCodeName { get; set; }
 
-    //    public string? CSSText { get; set; }
+        public string? CSSText { get; set; }
 
-    //    public string? StyleText { get; set; }
-    //}
+        public string? StyleText { get; set; }
+    }
 
     //[FhirType("AcpForm#QuestionOption", IsNestedType = true)]
     //public class QuestionOptionComponent : BackboneEntity

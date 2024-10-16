@@ -115,3 +115,19 @@ GO
 
 EXEC ConvertDateTimeToDateTimeOffset @TableName = 'FormQuestion_MA', @ColumnName = 'CreatedOn'; 
 ```
+
+- table `Question_MA`
+```sql
+ALTER TABLE [dbo].[Question_MA]
+ADD [AcpFormEntityId] [varchar](64) NULL
+
+ALTER TABLE [dbo].[Question_MA]
+ADD CONSTRAINT [FK_Question_MA_Questionnaire]
+FOREIGN KEY ([AcpFormEntityId]) REFERENCES [dbo].[Questionnaire] ([Id]);
+
+UPDATE q
+SET q.AcpFormEntityId = f.AcpFormEntityId
+FROM [dbo].[Question_MA] q
+INNER JOIN [dbo].[FormQuestion_MA] f
+    ON q.OID = f.QuestionOID
+```
