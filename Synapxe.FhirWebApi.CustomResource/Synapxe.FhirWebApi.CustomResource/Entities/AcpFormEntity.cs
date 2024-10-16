@@ -17,7 +17,7 @@ public partial class AcpFormEntity : ResourceEntity
 
     public List<FormQuestionComponent> FormQuestions { get; set; } = new();
 
-    //public List<WorksheetQuestionComponent> WorksheetQuestions { get; set; } = new();
+    public List<WorksheetQuestionComponent> WorksheetQuestions { get; set; } = new();
 
     public List<QuestionComponent> Questions { get; set; } = new();
 
@@ -61,37 +61,37 @@ public partial class AcpFormEntity : ResourceEntity
         public string? Code { get; set; }
     }
 
-    //[FhirType("AcpForm#WorksheetQuestion", IsNestedType = true)]
-    //public class WorksheetQuestionComponent : BackboneEntity
-    //{
-    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    //    [Key]
-    //    public long OID { get; set; }
+    [FhirType("AcpForm#WorksheetQuestion", IsNestedType = true)]
+    public class WorksheetQuestionComponent : BackboneEntity
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public long OID { get; set; }
 
-    //    public string? WorksheetType { get; set; }
+        public string WorksheetType { get; set; }
 
-    //    public string? WorksheetTypeName { get; set; }
+        public string WorksheetTypeName { get; set; }
 
-    //    public string? DiseaseType { get; set; }
+        public string? DiseaseType { get; set; }
 
-    //    public string? DiseaseTypeName { get; set; }
+        public string? DiseaseTypeName { get; set; }
 
-    //    public long QuestionOID { get; set; }
+        public long QuestionOID { get; set; }
 
-    //    public string? QuestionTitle { get; set; }
+        public string? QuestionTitle { get; set; }
 
-    //    public bool IsMandatory { get; set; }
+        public bool IsMandatory { get; set; }
 
-    //    public int DisplayOrder { get; set; }
+        public int DisplayOrder { get; set; }
 
-    //    public string? StatusCode { get; set; }
+        public string StatusCode { get; set; }
 
-    //    public string? StatusCodeName { get; set; }
+        public string StatusCodeName { get; set; }
 
-    //    public int? UI_Version { get; set; }
+        //public byte UI_Version { get; set; }
 
-    //    public string InfoHTML { get; set; }
-    //}
+        public string? InfoHTML { get; set; }
+    }
 
     [FhirType("AcpForm#Question", IsNestedType = true)]
     public class QuestionComponent : BackboneEntity

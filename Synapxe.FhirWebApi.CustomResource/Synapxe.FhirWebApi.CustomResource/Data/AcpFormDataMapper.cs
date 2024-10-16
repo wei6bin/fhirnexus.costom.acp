@@ -31,18 +31,18 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
                 IsMandatory = q.IsMandatory,
                 DisplayOrder = q.DisplayOrder
             }).ToList(),
-            //WorksheetQuestions = resource.WorksheetQuestions?.Select(q => new AcpForm.WorksheetQuestionComponent
-            //{
-            //    OID = q.OID,
-            //    WorksheetType = q.WorksheetType,
-            //    WorksheetTypeName = q.WorksheetTypeName,
-            //    DiseaseType = q.DiseaseType,
-            //    DiseaseTypeName = q.DiseaseTypeName,
-            //    QuestionOID = q.QuestionOID,
-            //    QuestionTitle = q.QuestionTitle,
-            //    IsMandatory = q.IsMandatory,
-            //    DisplayOrder = q.DisplayOrder
-            //}).ToList(),
+            WorksheetQuestions = resource.WorksheetQuestions?.Select(q => new AcpForm.WorksheetQuestionComponent
+            {
+                OID = q.OID,
+                WorksheetType = q.WorksheetType,
+                WorksheetTypeName = q.WorksheetTypeName,
+                DiseaseType = q.DiseaseType,
+                DiseaseTypeName = q.DiseaseTypeName,
+                QuestionOID = q.QuestionOID,
+                QuestionTitle = q.QuestionTitle,
+                IsMandatory = q.IsMandatory,
+                DisplayOrder = q.DisplayOrder
+            }).ToList(),
             Questions = resource.Questions?.Select(q => new AcpForm.QuestionComponent
             {
                 OID = q.OID,
@@ -78,18 +78,18 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
                 IsMandatory = q.IsMandatory ?? false,
                 DisplayOrder = q.DisplayOrder ?? 0
             }).ToList() ?? new(),
-            //WorksheetQuestions = resource.WorksheetQuestions?.Select(q => new AcpFormEntity.WorksheetQuestionComponent
-            //{
-            //    OID = q.OID ?? 0,
-            //    WorksheetType = q.WorksheetType,
-            //    WorksheetTypeName = q.WorksheetTypeName,
-            //    DiseaseType = q.DiseaseType,
-            //    DiseaseTypeName = q.DiseaseTypeName,
-            //    QuestionOID = q.QuestionOID ?? 0,
-            //    QuestionTitle = q.QuestionTitle,
-            //    IsMandatory = q.IsMandatory ?? false,
-            //    DisplayOrder = q.DisplayOrder ?? 0
-            //}).ToList() ?? new(),
+            WorksheetQuestions = resource.WorksheetQuestions?.Select(q => new AcpFormEntity.WorksheetQuestionComponent
+            {
+                OID = q.OID ?? 0,
+                WorksheetType = q.WorksheetType,
+                WorksheetTypeName = q.WorksheetTypeName,
+                DiseaseType = q.DiseaseType,
+                DiseaseTypeName = q.DiseaseTypeName,
+                QuestionOID = q.QuestionOID ?? 0,
+                QuestionTitle = q.QuestionTitle,
+                IsMandatory = q.IsMandatory ?? false,
+                DisplayOrder = q.DisplayOrder ?? 0
+            }).ToList() ?? new(),
             Questions = resource.Questions?.Select(q => new AcpFormEntity.QuestionComponent
             {
                 OID = q.OID ?? 0,

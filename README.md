@@ -130,4 +130,27 @@ SET q.AcpFormEntityId = f.AcpFormEntityId
 FROM [dbo].[Question_MA] q
 INNER JOIN [dbo].[FormQuestion_MA] f
     ON q.OID = f.QuestionOID
+-- and update datetime to datetimeoffset
+```
+
+- table `WorksheetQuestion_MA`
+```sql
+ALTER TABLE [dbo].[WorksheetQuestion_MA]
+ADD [AcpFormEntityId] [varchar](64) NULL
+
+ALTER TABLE [dbo].[WorksheetQuestion_MA]
+ADD CONSTRAINT [FK_WorksheetQuestion_MA_Questionnaire]
+FOREIGN KEY ([AcpFormEntityId]) REFERENCES [dbo].[Questionnaire] ([Id]);
+
+UPDATE WorksheetQuestion_MA SET AcpFormEntityId = '1E1ADD44-F1EA-48E7-9A95-2108093B9E79' WHERE WorksheetType = 'DS'
+UPDATE WorksheetQuestion_MA SET AcpFormEntityId = '9D628696-0DE4-4A7E-B89D-1132926FEF2F' WHERE WorksheetType = 'GENERAL'
+UPDATE WorksheetQuestion_MA SET AcpFormEntityId = '68672224-A225-40A7-B83A-559919E0C427' WHERE WorksheetType = 'PPC'
+
+UPDATE q
+SET q.AcpFormEntityId = f.AcpFormEntityId
+FROM [dbo].[Question_MA] q
+INNER JOIN [dbo].[WorksheetQuestion_MA] f
+    ON q.OID = f.QuestionOID
+
+-- and update datetime to datetimeoffset
 ```
