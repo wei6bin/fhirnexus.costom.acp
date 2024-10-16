@@ -19,7 +19,7 @@ public partial class AcpFormEntity : ResourceEntity
 
     public List<WorksheetQuestionComponent> WorksheetQuestions { get; set; } = new();
 
-    public List<QuestionComponent> Questions { get; set; } = new();
+    public List<Question> Questions { get; set; } = new();
 
     //public List<QuestionOptionComponent> QuestionOptions { get; set; } = new();
 
@@ -94,7 +94,7 @@ public partial class AcpFormEntity : ResourceEntity
     }
 
     [FhirType("AcpForm#Question", IsNestedType = true)]
-    public class QuestionComponent : BackboneEntity
+    public class Question : BackboneEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
@@ -109,43 +109,46 @@ public partial class AcpFormEntity : ResourceEntity
         public string? CSSText { get; set; }
 
         public string? StyleText { get; set; }
+
+        public List<QuestionOptionComponent> QuestionOptions { get; set; }
     }
 
-    //[FhirType("AcpForm#QuestionOption", IsNestedType = true)]
-    //public class QuestionOptionComponent : BackboneEntity
-    //{
-    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    //    [Key]
-    //    public long OID { get; set; }
+    [FhirType("AcpForm#QuestionOption", IsNestedType = true)]
+    public class QuestionOptionComponent : BackboneEntity
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public long OID { get; set; }
 
-    //    public long QuestionOID { get; set; }
+        [ForeignKey("QuestionComponent")]
+        public long QuestionOID { get; set; }
 
-    //    public string Label { get; set; }
+        public string? Label { get; set; }
 
-    //    public string Type { get; set; }
+        public string Type { get; set; }
 
-    //    public string TypeRef { get; set; }
+        public string? TypeRef { get; set; }
 
-    //    public string Text { get; set; }
+        public string? Text { get; set; }
 
-    //    public string? Value { get; set; }
+        public string? Value { get; set; }
 
-    //    public int DisplayOrder { get; set; }
+        public int DisplayOrder { get; set; }
 
-    //    public int ColumnIndex { get; set; }
+        public int ColumnIndex { get; set; }
 
-    //    public string? CSSText { get; set; }
+        public string? CSSText { get; set; }
 
-    //    public long ParentOptionOID { get; set; }
+        public long? ParentOptionOID { get; set; }
 
-    //    public string? ControlEvents { get; set; }
+        public string? ControlEvents { get; set; }
 
-    //    public string? SourceCodeSystem { get; set; }
+        public string? SourceCodeSystem { get; set; }
 
-    //    public string? OtherAttributes { get; set; }
+        public string? OtherAttributes { get; set; }
 
-    //    public string StatusCode { get; set; }
+        public string StatusCode { get; set; }
 
-    //    public string StatusCodeName { get; set; }
-    //}
+        public string StatusCodeName { get; set; }
+    }
 }

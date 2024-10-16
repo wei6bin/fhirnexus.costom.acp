@@ -35,21 +35,21 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
                     .Ignore(x => x.ElementId)
                     .Ignore(x => x.Extension)
                     .Ignore(x => x.ModifierExtension))
-                .OwnsMany(x => x.Questions, q => q
-                    .ToTable("Question_MA")
-                    .Ignore(x => x.ElementId)
-                    .Ignore(x => x.Extension)
-                    .Ignore(x => x.ModifierExtension))
                 .OwnsMany(x => x.WorksheetQuestions, ws => ws
                     .ToTable("WorksheetQuestion_MA")
                     .Ignore(x => x.ElementId)
                     .Ignore(x => x.Extension)
+                    .Ignore(x => x.ModifierExtension))
+                .OwnsMany(x => x.Questions, q => q
+                    .ToTable("Question_MA")
+                    .OwnsMany(x => x.QuestionOptions, qo => qo
+                        .ToTable("QuestionOption_MA")
+                        .Ignore(x => x.ElementId)
+                        .Ignore(x => x.Extension)
+                        .Ignore(x => x.ModifierExtension))
+                    .Ignore(x => x.ElementId)
+                    .Ignore(x => x.Extension)
                     .Ignore(x => x.ModifierExtension));
-            //.OwnsMany(x => x.QuestionOptions, qo => qo
-            //    .ToTable("QuestionOption_MA")
-            //    .Ignore(x => x.ElementId)
-            //    .Ignore(x => x.Extension)
-            //    .Ignore(x => x.ModifierExtension));
 
             modelBuilder.Entity<AcpFormAnswerEntity>()
                 .Ignore(x => x.Contained)
