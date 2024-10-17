@@ -18,6 +18,7 @@ CREATE TABLE [dbo].[Questionnaire](
 	[Id] [varchar](64) NOT NULL,
 	[OID] [bigint] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
 	[FormType] [nvarchar](100) NOT NULL,
+	[IsHistory] [bit] NOT NULL DEFAULT 0
  CONSTRAINT [PK_Questionnaire] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
@@ -25,17 +26,17 @@ CREATE TABLE [dbo].[Questionnaire](
 ) ON [PRIMARY]
 GO
 
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'FORM_GENERAL')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('18082E76-E1F4-455E-9936-D6EC6B6E684A',N'FORM_GENERAL')
 GO
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'FORM_DS')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('E45A8174-DBA2-4176-A7E3-DAE0D22F7C78',N'FORM_DS')
 GO
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'FORM_PPC')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('8D4A3854-0E3C-4DF1-AB5A-EAD02FB596AA',N'FORM_PPC')
 GO
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'WORKSHEET_GENERAL')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('9D628696-0DE4-4A7E-B89D-1132926FEF2F',N'WORKSHEET_GENERAL')
 GO
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'WORKSHEET_DS')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('1E1ADD44-F1EA-48E7-9A95-2108093B9E79',N'WORKSHEET_DS')
 GO
-INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES (NEWID(),N'WORKSHEET_PPC')
+INSERT [dbo].[Questionnaire] ([Id], [FormType]) VALUES ('68672224-A225-40A7-B83A-559919E0C427',N'WORKSHEET_PPC')
 GO
 ```
 
@@ -43,9 +44,6 @@ GO
 ```sql
 ALTER TABLE [dbo].[FormQuestion_MA]
 ADD [AcpFormEntityId] [varchar](64) NULL
-
-ALTER TABLE [dbo].[FormQuestion_MA]
-ADD [IsHistory] [bit] NOT NULL DEFAULT 0
 
 ALTER TABLE [dbo].[FormQuestion_MA]
 ADD CONSTRAINT [FK_FormQuestion_MA_Questionnaire]
