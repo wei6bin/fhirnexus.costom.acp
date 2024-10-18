@@ -141,6 +141,115 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Reading a newly created general form Questionnaire returns the same Questionnaire" +
+            "")]
+        [Xunit.TraitAttribute("FeatureTitle", "Questionnaire")]
+        [Xunit.TraitAttribute("Description", "Reading a newly created general form Questionnaire returns the same Questionnaire" +
+            "")]
+        public void ReadingANewlyCreatedGeneralFormQuestionnaireReturnsTheSameQuestionnaire()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reading a newly created general form Questionnaire returns the same Questionnaire" +
+                    "", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 17
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 18
+ testRunner.Given("a Resource is created from Samples/form-general-response-nested-compare-1.json as" +
+                        " createdResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 19
+ testRunner.When("getting Questionnaire/{createdResource.Id} as readResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Path",
+                            "Value"});
+                table6.AddRow(new string[] {
+                            "statusCode",
+                            "201"});
+#line 20
+ testRunner.Then("createdResource is a Fhir Questionnaire with data", ((string)(null)), table6, "Then ");
+#line hidden
+#line 23
+ testRunner.And("createdResource and readResource are exactly the same", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Search a newly created general form Questionnaire by url, returns the bundle cont" +
+            "ains a single Questionnaire")]
+        [Xunit.TraitAttribute("FeatureTitle", "Questionnaire")]
+        [Xunit.TraitAttribute("Description", "Search a newly created general form Questionnaire by url, returns the bundle cont" +
+            "ains a single Questionnaire")]
+        public void SearchANewlyCreatedGeneralFormQuestionnaireByUrlReturnsTheBundleContainsASingleQuestionnaire()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search a newly created general form Questionnaire by url, returns the bundle cont" +
+                    "ains a single Questionnaire", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 25
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Path",
+                            "Value",
+                            "FhirType"});
+                table7.AddRow(new string[] {
+                            "url",
+                            "http://synapxe.sg/Questionnaire/{#uri}",
+                            "uri"});
+#line 26
+ testRunner.Given("a Resource is created from Samples/form-general-simple-version.json with data as " +
+                        "createdResource", ((string)(null)), table7, "Given ");
+#line hidden
+#line 29
+ testRunner.When("getting Questionnaire?url=http://synapxe.sg/Questionnaire/{#uri}&_total=accurate&" +
+                        "_sort=_lastUpdated as searchBundle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
+ testRunner.Then("searchBundle is a Fhir Bundle which contains createdResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Path",
+                            "Value",
+                            "FhirType"});
+                table8.AddRow(new string[] {
+                            "statusCode",
+                            "200",
+                            ""});
+                table8.AddRow(new string[] {
+                            "total",
+                            "1",
+                            "int"});
+#line 31
+ testRunner.Then("searchBundle is a Fhir Bundle with data", ((string)(null)), table8, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

@@ -7,27 +7,30 @@ namespace Synapxe.FhirWebApi.Relational.Data;
 
 public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Questionnaire>
 {
-    public Questionnaire Map(QuestionnaireEntity resource)
+    public Questionnaire Map(QuestionnaireEntity entity)
     {
         var questionnaire = new Questionnaire
         {
-            Id = resource.Id.ToString(),
-            Status = EnumUtility.ParseLiteral<PublicationStatus>(resource.Status),
-            Title = resource.Title,
+            Id = entity.Id,
+            Status = EnumUtility.ParseLiteral<PublicationStatus>(entity.Status),
+            Title = entity.Title,
             Meta = new Meta
             {
-                LastUpdated = resource.LastUpdated,
-                VersionId = resource.VersionId.ToString(),
+                LastUpdated = entity.LastUpdated,
+                VersionId = entity.VersionId.ToString(),
             }
         };
 
-        var itemDictionary = resource.Item.ToDictionary(i => i.LinkId);
-        foreach (var item in resource.Item)
+        if (entity.Url != null)
         {
-            if (string.IsNullOrEmpty(item.ParentLinkId))
-            {
-                questionnaire.Item.Add(ConvertToItemComponent(item, itemDictionary));
-            }
+            questionnaire.Url = entity.Url.Value;
+        }
+
+        var itemDictionary = entity.Item.ToDictionary(i => i.LinkId);
+
+        foreach (var item in entity.Item.Where(item => string.IsNullOrEmpty(item.ParentLinkId)))
+        {
+            questionnaire.Item.Add(ConvertToItemComponent(item, itemDictionary));
         }
 
         return questionnaire;
@@ -90,9 +93,9 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
             LastUpdated = resource.Meta?.LastUpdated,
             Status = resource.Status.GetLiteral(),
             Title = resource.Title,
+            Url = new UriEntity { Value = resource.Url },
+            Item = []
         };
-
-        entity.Item = new List<QuestionnaireEntity.ItemComponent>();
 
         foreach (var item in resource.Item)
         {
@@ -102,7 +105,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
         return entity;
     }
 
-    private static void FlattenQuestionnaireItemsRecursive(Questionnaire.ItemComponent parentItem, Questionnaire.ItemComponent childItem, List<QuestionnaireEntity.ItemComponent> result)
+    private static void FlattenQuestionnaireItemsRecursive(Questionnaire.ItemComponent? parentItem, Questionnaire.ItemComponent? childItem, List<QuestionnaireEntity.ItemComponent> result)
     {
         if (childItem == null) return;
 
@@ -112,9 +115,9 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
             Text = childItem.Text,
             Type = childItem.Type.GetLiteral(),
             Required = childItem.Required,
+            AnswerOption = []
         };
 
-        childEntity.AnswerOption = [];
         foreach (var answerOption in childItem.AnswerOption)
         {
             childEntity.AnswerOption.Add(new QuestionnaireEntity.AnswerOptionComponent
@@ -131,7 +134,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
             });
         }
 
-        childEntity.EnableWhen = new List<QuestionnaireEntity.EnableWhenComponent>();
+        childEntity.EnableWhen = [];
         foreach (var enableWhen in childItem.EnableWhen)
         {
             childEntity.EnableWhen.Add(new QuestionnaireEntity.EnableWhenComponent
