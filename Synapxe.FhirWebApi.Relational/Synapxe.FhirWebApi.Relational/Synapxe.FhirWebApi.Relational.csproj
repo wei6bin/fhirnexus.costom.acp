@@ -1,32 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ProjectGuid>{CEA6CF70-189E-4D35-A3CF-036F02A3E563}</ProjectGuid>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ProjectGuid>{CEA6CF70-189E-4D35-A3CF-036F02A3E563}</ProjectGuid>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-    <ItemGroup>
-        <InternalsVisibleTo Include="Synapxe.FhirWebApi.Relational.IntegrationTests" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Data.Relational.SqlServer" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Data.Extensions.AutoMapper" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Data.Models.R5" Version="4.2.0-dev-*" />
-    </ItemGroup>
+	<ItemGroup>
+		<InternalsVisibleTo Include="Synapxe.FhirWebApi.Relational.IntegrationTests" />
+		<PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Data.Relational.SqlServer" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Data.Extensions.AutoMapper" Version="4.2.0-dev-*" />
+		<PackageReference Include="Ihis.FhirEngine.Data.Models.R5" Version="4.2.0-dev-*" />
+	</ItemGroup>
 
-    <ItemGroup>
-        <AdditionalFiles Include="Conformance/*.StructureDefinition.json" />
-    </ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="Conformance/*.StructureDefinition.json" />
+	</ItemGroup>
 
-    <ItemGroup>
-      <Content Remove="Conformance\AcpQuestionnaire.StructureDefinition.json" />
-      <Content Remove="Conformance\AcpQuestionnaireResponse.StructureDefinition.json" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Handlers\" />
-    </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Handlers\" />
+	</ItemGroup>
 </Project>

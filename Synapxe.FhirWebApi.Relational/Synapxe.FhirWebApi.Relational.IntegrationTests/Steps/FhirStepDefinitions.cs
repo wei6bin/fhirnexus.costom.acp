@@ -175,9 +175,9 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Steps
         }
 
         [Then(@"(\w+) and (\w+) are exactly the same")]
-        public void ResourcesAreExactlyTheSame(string resourseA, string resourceB)
+        public void ResourcesAreExactlyTheSame(string resourceA, string resourceB)
         {
-            var res1 = scenarioContext.SafeGet<Resource>(resourseA);
+            var res1 = scenarioContext.SafeGet<Resource>(resourceA);
             var res2 = scenarioContext.SafeGet<Resource>(resourceB);
 
             Assert.Equal(res1, res2, FhirResourceComparer.Instance);

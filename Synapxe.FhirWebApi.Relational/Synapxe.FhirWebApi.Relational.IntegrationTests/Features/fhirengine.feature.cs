@@ -81,20 +81,20 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
         {
 #line 4
 #line hidden
-            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "HeaderName",
                         "Value"});
 #line 5
-    testRunner.Given("a new HttpClient as unauthenticatedHttpClient", ((string)(null)), table28, "Given ");
+ testRunner.Given("a new HttpClient as unauthenticatedHttpClient", ((string)(null)), table1, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "HeaderName",
                         "Value"});
-            table29.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "X-Ihis-SourceApplication",
                         "testapp"});
 #line 7
-    testRunner.And("a new HttpClient as authenticatedHttpClient", ((string)(null)), table29, "And ");
+ testRunner.And("a new HttpClient as authenticatedHttpClient", ((string)(null)), table2, "And ");
 #line hidden
         }
         
@@ -130,58 +130,16 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 13
-    testRunner.When("getting Appointment/{newguid} as readAppt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("getting Appointment/{newguid} as readAppt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value"});
-                table30.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "statusCode",
                             "401"});
 #line 14
-    testRunner.Then("readAppt is a Fhir OperationOutcome with data", ((string)(null)), table30, "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Reading a nonexistent resource from an authenticated client returns 404 status co" +
-            "de")]
-        [Xunit.TraitAttribute("FeatureTitle", "FhirEngine")]
-        [Xunit.TraitAttribute("Description", "Reading a nonexistent resource from an authenticated client returns 404 status co" +
-            "de")]
-        [Xunit.TraitAttribute("Category", "HttpClient:authenticatedHttpClient")]
-        public void ReadingANonexistentResourceFromAnAuthenticatedClientReturns404StatusCode()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "HttpClient:authenticatedHttpClient"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Reading a nonexistent resource from an authenticated client returns 404 status co" +
-                    "de", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 19
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-#line 20
-    testRunner.When("getting Appointment/{newguid} as readAppt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-                TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Path",
-                            "Value"});
-                table31.AddRow(new string[] {
-                            "statusCode",
-                            "404"});
-#line 21
-    testRunner.Then("readAppt is a Fhir OperationOutcome with data", ((string)(null)), table31, "Then ");
+ testRunner.Then("readAppt is a Fhir OperationOutcome with data", ((string)(null)), table3, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -197,7 +155,7 @@ this.FeatureBackground();
                     "HttpClient:authenticatedHttpClient"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Metadata endpoint returns the CapabilityStatement with valid canonical links", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 26
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -210,11 +168,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 27
-    testRunner.When("getting metadata as metadata", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.When("getting metadata as metadata", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
-    testRunner.Then("metadata is a Fhir CapabilityStatement with resolvable links", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 21
+ testRunner.Then("metadata is a Fhir CapabilityStatement with resolvable links", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -230,7 +188,7 @@ this.FeatureBackground();
                     "HttpClient:unauthenticatedHttpClient"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Metadata endpoint is accessible without authentication", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -243,11 +201,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 32
-    testRunner.When("getting metadata as metadata", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.When("getting metadata as metadata", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
-    testRunner.Then("metadata has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 26
+ testRunner.Then("metadata has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -263,7 +221,7 @@ this.FeatureBackground();
                     "HttpClient:authenticatedHttpClient"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Health endpoint returns 200 status code", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 36
+#line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -276,11 +234,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 37
-    testRunner.When("getting /health?_pretty=true as health", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 30
+ testRunner.When("getting /health?_pretty=true as health", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 38
-    testRunner.Then("health has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then("health has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -296,7 +254,7 @@ this.FeatureBackground();
                     "HttpClient:unauthenticatedHttpClient"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Swagger endpoint returns 200 status code", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 42
+#line 35
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -309,11 +267,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 43
-    testRunner.When("getting /swagger/v1/swagger.json as openapi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.When("getting /swagger/v1/swagger.json as openapi", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 44
-    testRunner.Then("openapi has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+ testRunner.Then("openapi has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -329,7 +287,7 @@ this.FeatureBackground();
                     "HttpClient:unauthenticatedHttpClient"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Prometheus scraping endpoint returns 200 status code", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 49
+#line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -342,11 +300,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 50
-    testRunner.When("getting /metrics as metrics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.When("getting /metrics as metrics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 51
-    testRunner.Then("metrics has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+ testRunner.Then("metrics has statusCode 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
