@@ -7,11 +7,12 @@ namespace Synapxe.FhirWebApi.CustomResource.Entities;
 
 [CustomFhirResource]
 [FhirType("AcpForm", "http://hl7.org/fhir/StructureDefinition/AcpForm", IsResource = true)]
-public partial class AcpFormEntity : ResourceEntity
+public partial class AcpFormEntity : IResourceEntity<long>
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Column("OID")]
     [Key]
-    public long OID { get; set; }
+    public long Id { get; set; }
 
     public string FormType { get; set; }
 
@@ -21,7 +22,14 @@ public partial class AcpFormEntity : ResourceEntity
 
     public List<Question> Questions { get; set; } = new();
 
-    //public List<QuestionOptionComponent> QuestionOptions { get; set; } = new();
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public int? VersionId { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public bool IsHistory { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public DateTimeOffset? LastUpdated { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    [System.ComponentModel.DataAnnotations.Schema.NotMapped]
+    public byte[]? TimeStamp { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     [FhirType("AcpForm#FormQuestion", IsNestedType = true)]
     public class FormQuestionComponent : BackboneEntity

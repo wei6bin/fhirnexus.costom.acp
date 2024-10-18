@@ -1,0 +1,86 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://example.org/fhir/StructureDefinition/AcpQuestionnaireResponse",
+  "name": "AcpQuestionnaireResponse",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "QuestionnaireResponse",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "QuestionnaireResponse.implicitRules",
+        "path": "QuestionnaireResponse.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.language",
+        "path": "QuestionnaireResponse.language",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.text",
+        "path": "QuestionnaireResponse.text",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.contained",
+        "path": "QuestionnaireResponse.contained",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.extension",
+        "path": "QuestionnaireResponse.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.modifierExtension",
+        "path": "QuestionnaireResponse.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.identifier",
+        "path": "QuestionnaireResponse.identifier",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.basedOn",
+        "path": "QuestionnaireResponse.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.partOf",
+        "path": "QuestionnaireResponse.partOf",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.encounter",
+        "path": "QuestionnaireResponse.encounter",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item.extension",
+        "path": "QuestionnaireResponse.item.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item.modifierExtension",
+        "path": "QuestionnaireResponse.item.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.extension",
+        "path": "QuestionnaireResponse.item.answer.extension",
+        "max": "0"
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.modifierExtension",
+        "path": "QuestionnaireResponse.item.answer.modifierExtension",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -1,5 +1,4 @@
 ﻿using Hl7.Fhir.Model;
-using Hl7.Fhir.Model.CdsHooks;
 using Ihis.FhirEngine.Core.Handlers.Data;
 using Synapxe.FhirWebApi.CustomResource.Entities;
 

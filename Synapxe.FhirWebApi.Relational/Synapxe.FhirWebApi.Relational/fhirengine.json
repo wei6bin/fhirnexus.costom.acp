@@ -5,6 +5,7 @@
   "SystemPlugins": {
     "Metadata": "Conformance",
     "Merge": true,
+    "QuestionnaireResponseValidation": true,
     "OpenTelemetryPrometheusMetrics": {
       "AspNetCoreInstrumentation": true
     },
@@ -30,14 +31,16 @@
           "AutoCreateTables": false
         },
         "UseDataMapper": [
-          "Synapxe.FhirWebApi.Relational.Data.QuestionnaireDataMapper"
+          "Synapxe.FhirWebApi.Relational.Data.QuestionnaireDataMapper",
+          "Synapxe.FhirWebApi.Relational.Data.QuestionnaireResponseDataMapper"
         ],
         "UseAutoMapperDataMapper": true,
         "IncludeStandardSearchParams": true,
         "ConnectionString": "Local",
         "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
         "AcceptedTypes": [
-          "Questionnaire"
+          "Questionnaire",
+          "QuestionnaireResponse",
         ]
       }
     }

@@ -1,5 +1,4 @@
 ﻿using Hl7.Fhir.Model;
-using Hl7.Fhir.Model.CdsHooks;
 using Ihis.FhirEngine.Core.Handlers.Data;
 using Synapxe.FhirWebApi.CustomResource.Entities;
 
@@ -11,7 +10,7 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
     {
         return new AcpForm
         {
-            Id = resource.Id.ToString(),
+            Id = resource.Id.ToString("N"),
             Meta = new Meta
             {
                 VersionId = resource.VersionId.ToString(),
@@ -75,8 +74,9 @@ public class AcpFormDataMapper : IFhirDataMapper<AcpFormEntity, AcpForm>
 
     public AcpFormEntity ReverseMap(AcpForm resource)
     {
-        return new AcpFormEntity {
-            Id = resource.Id,
+        return new AcpFormEntity
+        {
+            Id = long.TryParse(resource.Id, out var id) ? id : 0,
             VersionId = int.TryParse(resource.VersionId, out var vid) ? vid : 0,
             FormType = resource.FormType,
             FormQuestions = resource.FormQuestions?.Select(q => new AcpFormEntity.FormQuestionComponent

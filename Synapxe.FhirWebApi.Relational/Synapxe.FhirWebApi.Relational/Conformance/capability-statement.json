@@ -92,8 +92,39 @@
               "code": "search-type"
             }
           ],
-          "versioning": "no-version"
+          "versioning": "versioned"
         },
+        {
+          "type": "QuestionnaireResponse",
+          "profile": "StructureDefinition/acpquestionnaireresponse",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "history-instance"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "patch"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned"
+        }
       ]
     }
   ]

@@ -5,17 +5,18 @@
         <ProjectGuid>{6FA34CE9-EC06-444C-B0FF-F1D3B4A42D24}</ProjectGuid>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-    </PropertyGroup>
+		<NoWarn>NU1605</NoWarn>
+	</PropertyGroup>
 
     <ItemGroup>
-		<PackageReference Include="Synapxe.Fhir.CodeGeneration" Version="1.0.0-*" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0-dev-*" />
-		<PackageReference Include="Ihis.FhirEngine.Data.Models" Version="4.2.0-dev-*" />
-		<PackageReference Include="Ihis.FhirEngine.Msbuild.Tasks" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0-dev-*" />
-        <PackageReference Include="Ihis.FhirEngine.Data.Relational.SqlServer" Version="4.2.0-dev-*" />
-    </ItemGroup>
+		<PackageReference Include="Ihis.FhirEngine.Data.Models" Version="4.2.0-alpha-24290" />
+		<PackageReference Include="Ihis.FhirEngine.Msbuild.Tasks" Version="4.2.0-alpha-24290" />
+		<PackageReference Include="Ihis.FhirEngine.Data.Relational.SqlServer" Version="4.2.0-dev-24255.3" />
+
+		<PackageReference Include="Ihis.FhirEngine.WebApi.Extensions.Swashbuckle" Version="4.2.0-dev-24255.3" />
+		<PackageReference Include="Ihis.FhirEngine.Extensions.OpenTelemetry" Version="4.2.0-dev-24255.3" />
+		<PackageReference Include="Ihis.FhirEngine.WebApi.R5" Version="4.2.0-dev-24255.3" />
+	</ItemGroup>
 
     <ItemGroup>
         <AdditionalFiles Include="Conformance/*.StructureDefinition.json" />

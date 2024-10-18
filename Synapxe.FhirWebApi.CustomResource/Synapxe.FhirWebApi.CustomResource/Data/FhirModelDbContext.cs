@@ -22,14 +22,6 @@ namespace Synapxe.FhirWebApi.CustomResource.Data
         {
             modelBuilder.UseFhirConventions(this);
             modelBuilder.Entity<AcpFormEntity>()
-                .Ignore(x => x.Contained)
-                .Ignore(x => x.Extension)
-                .Ignore(x => x.ModifierExtension)
-                .Ignore(x => x.Meta)
-                .Ignore(x => x.Text)
-                .Ignore(x => x.TimeStamp)
-                .Ignore(x => x.VersionId)
-                .Ignore(x => x.LastUpdated)
                 .OwnsMany(x => x.FormQuestions, fq => fq
                     .ToTable("FormQuestion_MA")
                     .Ignore(x => x.ElementId)

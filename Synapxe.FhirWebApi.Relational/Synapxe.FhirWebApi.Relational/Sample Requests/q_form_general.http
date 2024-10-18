@@ -3,7 +3,7 @@
 
 # @name createAppointmentRequest
 
-GET {{baseUrl}}/Questionnaire/AE0B1C4E3DE543AD9929CF871D7D4301
+GET {{baseUrl}}/Questionnaire/D9613BA89024442FBBF7CC5E3DD04B77
 X-Ihis-SourceApplication: {{applicationId}}
 
 ###
@@ -15,6 +15,7 @@ Content-Type: application/fhir+json
 {
   "resourceType": "Questionnaire",
   "title": "FORM_GENERAL",
+  "url": "http://synapxe.sg/Questionnaire/acp_form_general",
   "status": "active",
   "item": [
     {

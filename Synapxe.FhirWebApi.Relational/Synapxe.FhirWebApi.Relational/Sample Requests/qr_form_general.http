@@ -1,0 +1,83 @@
+@baseUrl=https://localhost:7143
+@applicationId=test-app
+
+# @name createAppointmentRequest
+
+GET {{baseUrl}}/QuestionnaireResponse/315B31E03E06457A9F8CD0CE185C863F
+X-Ihis-SourceApplication: {{applicationId}}
+
+###
+
+POST {{baseUrl}}/QuestionnaireResponse
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "QuestionnaireResponse",
+	"questionnaire": "http://synapxe.sg/Questionnaire/72AF51325494470EAD6968CFE340C2ED",
+  "status": "completed",
+  "authored": "2024-10-18T04:21:39.190Z",
+  "item": [
+    {
+      "linkId": "st-1",
+      "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client",
+      "item": [
+        {
+          "linkId": "fq-1.q-2",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions.",
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueString": "test answer 1"
+                }
+              ],
+              "linkId": "fq-1.q-2.qo-2"
+            }
+          ]
+        },
+        {
+          "linkId": "fq-2.q-3",
+          "text": "The following elements of care are important to me:",
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueString": "test answer 2"
+                }
+              ],
+              "linkId": "fq-2.q-3.qo-3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "st-3",
+      "text": "Other special requests, preferences or comments:",
+      "item": [
+        {
+          "linkId": "fq-18.q-19",
+          "item": [
+            {
+              "answer": [
+                {
+                  "valueString": "yes"
+                }
+              ],
+              "linkId": "fq-18.q-19.qo-62"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/5497583"
+  },
+  "author": {
+    "type": "Practitioner",
+    "reference": "Practitioner/smart-Practitioner-71482713",
+    "display": "Susan Clark"
+  }
+}
