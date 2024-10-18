@@ -17,7 +17,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
             Meta = new Meta
             {
                 LastUpdated = DateTimeOffset.Now,
-                VersionId = "1",
+                VersionId = resource.VersionId.ToString(),
             }
         };
 
@@ -33,7 +33,9 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
         return questionnaire;
     }
 
-    private static Questionnaire.ItemComponent ConvertToItemComponent(QuestionnaireEntity.ItemComponent entityItem, Dictionary<string, QuestionnaireEntity.ItemComponent> itemDictionary)
+    private static Questionnaire.ItemComponent ConvertToItemComponent(
+        QuestionnaireEntity.ItemComponent entityItem, 
+        Dictionary<string, QuestionnaireEntity.ItemComponent> itemDictionary)
     {
         var itemComponent = new Questionnaire.ItemComponent
         {
