@@ -1,0 +1,45 @@
+{
+  "EnableHandlerAutoRegistration": true,
+  "PublicConformanceResources": true,
+  "UseFhirController": false,
+  "SystemPlugins": {
+    "Metadata": "Conformance",
+    "Merge": true,
+    "OpenTelemetryPrometheusMetrics": {
+      "AspNetCoreInstrumentation": true
+    },
+    "OpenTelemetryTracing": {
+      "ServiceName": true,
+      "AspNetCoreInstrumentation": true,
+      "SqlClientInstrumentation": {
+        "SetDbStatementForText": true
+      },
+      "OtlpExporter": true
+    },
+    "Authentication": "Synapxe.FhirWebApi.Relational.Security.HeadersAuthenticationHandler",
+    "ResourceRepositoryCache": {
+      "GlobalExpiration": "01:00:00",
+      "AllowCacheDisable": true
+    }
+  },
+  "Handlers": {
+    "Repository": {
+      "FhirDataStore<@Relational>": {
+        "ContextType": "Synapxe.FhirWebApi.Relational.Data.FhirEntityDbContext",
+        "UseSqlRelationalModels": {
+          "AutoCreateTables": false
+        },
+        "UseDataMapper": [
+          "Synapxe.FhirWebApi.Relational.Data.QuestionnaireDataMapper"
+        ],
+        "UseAutoMapperDataMapper": true,
+        "IncludeStandardSearchParams": true,
+        "ConnectionString": "Local",
+        "AllowedInteractions": [ "Create", "Read", "Vread", "Update", "Delete", "SearchType", "OperationType", "OperationInstance" ],
+        "AcceptedTypes": [
+          "Questionnaire"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "acpquestionnaire",
+  "url": "http://synapxe.sg/fhir/StructureDefinition/AcpQuestionnaire",
+  "name": "AcpQuestionnaire",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Questionnaire",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Questionnaire",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Questionnaire.meta",
+        "path": "Questionnaire.meta"
+      },
+      {
+        "id": "Questionnaire.meta.source",
+        "path": "Questionnaire.meta.source",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.meta.profile",
+        "path": "Questionnaire.meta.profile",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.meta.security",
+        "path": "Questionnaire.meta.security",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.meta.tag",
+        "path": "Questionnaire.meta.tag",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.implicitRules",
+        "path": "Questionnaire.implicitRules",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.language",
+        "path": "Questionnaire.language",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.contained",
+        "path": "Questionnaire.contained",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.extension",
+        "path": "Questionnaire.extension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.modifierExtension",
+        "path": "Questionnaire.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.identifier",
+        "path": "Questionnaire.identifier",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.versionAlgorithm[x]",
+        "path": "Questionnaire.versionAlgorithm[x]",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.derivedFrom",
+        "path": "Questionnaire.derivedFrom",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.experimental",
+        "path": "Questionnaire.experimental",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.subjectType",
+        "path": "Questionnaire.subjectType",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.date",
+        "path": "Questionnaire.date",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.publisher",
+        "path": "Questionnaire.publisher",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.contact",
+        "path": "Questionnaire.contact",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.useContext",
+        "path": "Questionnaire.useContext",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.jurisdiction",
+        "path": "Questionnaire.jurisdiction",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.purpose",
+        "path": "Questionnaire.purpose",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.copyright",
+        "path": "Questionnaire.copyright",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.copyrightLabel",
+        "path": "Questionnaire.copyrightLabel",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.approvalDate",
+        "path": "Questionnaire.approvalDate",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.lastReviewDate",
+        "path": "Questionnaire.lastReviewDate",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.effectivePeriod",
+        "path": "Questionnaire.effectivePeriod",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.code",
+        "path": "Questionnaire.code",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.extension",
+        "path": "Questionnaire.item.extension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.modifierExtension",
+        "path": "Questionnaire.item.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.code",
+        "path": "Questionnaire.item.code",
+        "max": "1"
+      },
+      {
+        "id": "Questionnaire.item.answerOption.extension",
+        "path": "Questionnaire.item.answerOption.extension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.answerOption.modifierExtension",
+        "path": "Questionnaire.item.answerOption.modifierExtension",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.answerOption.initialSelected",
+        "path": "Questionnaire.item.answerOption.initialSelected",
+        "max": "0"
+      },
+      {
+        "id": "Questionnaire.item.initial",
+        "path": "Questionnaire.item.initial",
+        "max": "0"
+      }
+    ]
+  }
+}

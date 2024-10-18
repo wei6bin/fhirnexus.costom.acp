@@ -1,0 +1,113 @@
+@baseUrl=https://localhost:7143
+@applicationId=test-app
+
+# @name createAppointmentRequest
+
+GET {{baseUrl}}/Questionnaire/AE0B1C4E3DE543AD9929CF871D7D4301
+X-Ihis-SourceApplication: {{applicationId}}
+
+###
+
+POST {{baseUrl}}/Questionnaire
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Questionnaire",
+  "title": "FORM_GENERAL",
+  "status": "active",
+  "item": [
+    {
+      "linkId": "st-1",
+      "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "fq-1.q-2",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions.",
+          "type": "group",
+          "required": true,
+          "item": [
+            {
+              "linkId": "fq-1.q-2.qo-2",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "linkId": "fq-2.q-3",
+          "text": "The following elements of care are important to me:",
+          "type": "group",
+          "required": true,
+          "item": [
+            {
+              "linkId": "fq-2.q-3.qo-3",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "st-2",
+      "text": "Goals of medical care",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "fq-3.q-4",
+          "text": "If I have an injury or illness, and my doctors believe that further aggressive treatment will not reverse my medical condition and that I will have a low chance of recovering the ability to make decisions for myself and I would not know who I am, who I am with or where I am, I would prefer the following:",
+          "type": "coding",
+          "required": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "code": "qo-4",
+                "display": "Make comfort the goal of my care and do not prolong my life in this condition.\r\nHow I live my life means more to me than how long I live."
+              }
+            },
+            {
+              "valueCoding": {
+                "code": "qo-5",
+                "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes\r\nhappen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+              }
+            }
+          ],
+          "item": [
+            {
+              "linkId": "fq-3.q-4.qo-250",
+              "type": "text",
+              "enableWhen": [
+                {
+                  "question": "fq-3.q-4",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "qo-5"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "st-3",
+      "text": "Other special requests, preferences or comments:",
+      "type": "group",
+      "item": [
+        {
+          "linkId": "fq-18.q-19",
+          "text": "test_empty",
+          "type": "group",
+          "required": false,
+          "item": [
+            {
+              "linkId": "fq-18.q-19.qo-62",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
