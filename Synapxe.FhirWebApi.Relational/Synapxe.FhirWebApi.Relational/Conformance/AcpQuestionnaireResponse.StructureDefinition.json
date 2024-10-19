@@ -57,6 +57,16 @@
         "max": "0"
       },
       {
+        "id": "QuestionnaireResponse.questionnaire",
+        "path": "QuestionnaireResponse.questionnaire",
+        "min": 1
+      },
+      {
+        "id": "QuestionnaireResponse.subject",
+        "path": "QuestionnaireResponse.subject",
+        "min": 1
+      },
+      {
         "id": "QuestionnaireResponse.encounter",
         "path": "QuestionnaireResponse.encounter",
         "max": "0"

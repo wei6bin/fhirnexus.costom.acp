@@ -15,7 +15,7 @@ Scenario: Reading a newly created Questionnaire returns the same Questionnaire
 	And createdResource and readResource are exactly the same
 
 Scenario: Reading a newly created general form Questionnaire returns the same Questionnaire
-	Given a Resource is created from Samples/form-general-response-nested-compare-1.json as createdResource
+	Given a Resource is created from Samples/form-general-question-nested-compare-1.json as createdResource
 	When getting Questionnaire/{createdResource.Id} as readResource
 	Then createdResource is a Fhir Questionnaire with data
 		| Path       | Value |

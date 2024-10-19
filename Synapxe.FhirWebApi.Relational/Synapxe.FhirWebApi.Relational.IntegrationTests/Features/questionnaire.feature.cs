@@ -166,7 +166,7 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 18
- testRunner.Given("a Resource is created from Samples/form-general-response-nested-compare-1.json as" +
+ testRunner.Given("a Resource is created from Samples/form-general-question-nested-compare-1.json as" +
                         " createdResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19

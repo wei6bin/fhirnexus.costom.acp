@@ -11,27 +11,25 @@ public class QuestionnaireResponseDataMapper : IFhirDataMapper<QuestionnaireResp
     {
         var questionnaireResponse = new QuestionnaireResponse()
         {
-            Id = resource.Id.ToString(),
+            Id = resource.Id,
             Authored = resource.Authored?.Value,
+            // Subject is enforced to be mandatory
+            Subject = new ResourceReference(resource.Subject!.Reference),
+            // Questionnaire uri is enforced to be mandatory
+            Questionnaire = resource.Questionnaire!.Value
         };
-
-        if (resource.Subject != null)
-        {
-            questionnaireResponse.Subject = new ResourceReference(resource.Subject.Reference);
-        }
 
         if (resource.Author != null)
         {
             questionnaireResponse.Author = new ResourceReference(resource.Author.Reference);
         }
 
-        var itemDictionary = resource.Item.ToDictionary(i => i.LinkId);
-        foreach (var item in resource.Item)
+        // LinkId is mandatory as per FHIR spec
+        var itemDictionary = resource.Item.ToDictionary(component => component.LinkId!);
+
+        foreach (var item in resource.Item.Where(item => string.IsNullOrEmpty(item.ParentLinkId)))
         {
-            if (string.IsNullOrEmpty(item.ParentLinkId))
-            {
-                questionnaireResponse.Item.Add(ConvertToItemComponent(item, itemDictionary));
-            }
+            questionnaireResponse.Item.Add(ConvertToItemComponent(item, itemDictionary));
         }
 
         return questionnaireResponse;
@@ -39,7 +37,7 @@ public class QuestionnaireResponseDataMapper : IFhirDataMapper<QuestionnaireResp
 
     private QuestionnaireResponse.ItemComponent ConvertToItemComponent(
         QuestionnaireResponseEntity.ItemComponent entityItem,
-        Dictionary<string?, QuestionnaireResponseEntity.ItemComponent> itemDictionary)
+        Dictionary<string, QuestionnaireResponseEntity.ItemComponent> itemDictionary)
     {
         var itemComponent = new QuestionnaireResponse.ItemComponent
         {
@@ -68,24 +66,29 @@ public class QuestionnaireResponseDataMapper : IFhirDataMapper<QuestionnaireResp
 
     public QuestionnaireResponseEntity ReverseMap(QuestionnaireResponse resource)
     {
-        var entity = new QuestionnaireResponseEntity()
+        var entity = new QuestionnaireResponseEntity
         {
             Id = resource.Id,
             VersionId = int.TryParse(resource.Meta?.VersionId, out var versionId) ? versionId : 0,
             Status = resource.Status.GetLiteral(),
             LastUpdated = resource.Meta?.LastUpdated,
             Authored = new DateTimeEntity(resource.Authored),
-            Subject = new ResourceReferenceEntity()
+            Subject = new ResourceReferenceEntity
             {
                 Reference = resource.Subject!.Reference,
             },
-            Author = new ResourceReferenceEntity()
-            {
-                Reference = resource.Author!.Reference,
-            },
+            Questionnaire = new UriEntity { Value = resource.Questionnaire },
         };
 
-        entity.Item = new List<QuestionnaireResponseEntity.ItemComponent>();
+        if (resource.Author is not null)
+        {
+            entity.Author = new ResourceReferenceEntity
+            {
+                Reference = resource.Author.Reference
+            };
+        }
+
+        entity.Item = [];
 
         foreach (var item in resource.Item)
         {
@@ -96,19 +99,17 @@ public class QuestionnaireResponseDataMapper : IFhirDataMapper<QuestionnaireResp
     }
 
     private void FlattenQuestionnaireResponseItemsRecursive(
-        QuestionnaireResponse.ItemComponent parentItem,
+        QuestionnaireResponse.ItemComponent? parentItem,
         QuestionnaireResponse.ItemComponent childItem,
         List<QuestionnaireResponseEntity.ItemComponent> result)
     {
-        if (childItem == null) return;
-
         var childEntity = new QuestionnaireResponseEntity.ItemComponent
         {
             LinkId = childItem.LinkId,
             Text = childItem.Text,
+            Answer = []
         };
 
-        childEntity.Answer = [];
         foreach (var answer in childItem.Answer)
         {
             DataEntity value = new();
