@@ -269,7 +269,7 @@
           ]
         }
       ],
-      "type": "string",
+      "type": "group",
       "linkId": "160223185214",
       "text": " Presence of Signature"
     },
@@ -375,12 +375,34 @@
               "type": "group",
               "linkId": "656455743240",
               "text": "NHS details",
+              "enableWhen": [
+                {
+                  "question": "590614653457",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/yesno",
+                    "code": "yes",
+                    "display": "Yes"
+                  }
+                }
+              ],
               "repeats": true
             },
             {
               "type": "string",
               "linkId": "670603867771",
               "text": "Reason",
+              "enableWhen": [
+                {
+                  "question": "590614653457",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/yesno",
+                    "code": "no",
+                    "display": "No"
+                  }
+                }
+              ],
               "required": true
             }
           ],
@@ -420,7 +442,7 @@
           ]
         }
       ],
-      "type": "string",
+      "type": "group",
       "linkId": "808777067444",
       "text": " Presence of Signature"
     },

@@ -99,8 +99,8 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
                         "http://synapxe.sg/Questionnaire/{#uri}",
                         "uri"});
 #line 8
- testRunner.And("a Resource is created from Samples/form-general-question-nested-compare-1.json wi" +
-                    "th data as createdQuestionnaire", ((string)(null)), table14, "And ");
+ testRunner.And("a Resource is created from Samples/Form-General.R5.json with data as createdQuest" +
+                    "ionnaire", ((string)(null)), table14, "And ");
 #line hidden
         }
         
@@ -109,14 +109,14 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse")]
+        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse with wrong url")]
         [Xunit.TraitAttribute("FeatureTitle", "QuestionnaireResponse")]
-        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse")]
-        public void CreatingANewQuestionnaireResponse()
+        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse with wrong url")]
+        public void CreatingANewQuestionnaireResponseWithWrongUrl()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse with wrong url", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -136,34 +136,48 @@ this.FeatureBackground();
                             "FhirType"});
                 table15.AddRow(new string[] {
                             "questionnaire",
-                            "http://synapxe.sg/Questionnaire/{#uri}",
+                            "http://synapxe.sg/Questionnaire/{#uri}_wrong",
                             "uri"});
 #line 13
- testRunner.Given("a Resource is created from Samples/form-general-answer-nested-compare-1.json with" +
-                        " data as createdResponse", ((string)(null)), table15, "Given ");
+ testRunner.Given("a Resource is created from Samples/Form-General.R5_answer.empty.json with data as" +
+                        " createdResponse", ((string)(null)), table15, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
-                            "Value"});
+                            "Value",
+                            "FhirType"});
                 table16.AddRow(new string[] {
                             "statusCode",
-                            "201"});
+                            "422",
+                            ""});
+                table16.AddRow(new string[] {
+                            "issue[0].severity",
+                            "error",
+                            "code"});
+                table16.AddRow(new string[] {
+                            "issue[0].code",
+                            "not-found",
+                            "code"});
+                table16.AddRow(new string[] {
+                            "issue[0].details.text",
+                            "Resource reference \'http://synapxe.sg/Questionnaire/{#uri}_wrong\' is not valid",
+                            "string"});
 #line 16
- testRunner.Then("createdResponse is a Fhir QuestionnaireResponse with data", ((string)(null)), table16, "Then ");
+ testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table16, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse with wrong url")]
+        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse with empty answer")]
         [Xunit.TraitAttribute("FeatureTitle", "QuestionnaireResponse")]
-        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse with wrong url")]
-        public void CreatingANewQuestionnaireResponseWithWrongUrl()
+        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse with empty answer")]
+        public void CreatingANewQuestionnaireResponseWithEmptyAnswer()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse with wrong url", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse with empty answer", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -182,80 +196,20 @@ this.FeatureBackground();
                             "FhirType"});
                 table17.AddRow(new string[] {
                             "questionnaire",
-                            "http://synapxe.sg/Questionnaire/{#uri}_wrong",
+                            "http://synapxe.sg/Questionnaire/{#uri}",
                             "uri"});
-#line 21
- testRunner.Given("a Resource is created from Samples/form-general-answer-nested-compare-1.json with" +
-                        " data as createdResponse", ((string)(null)), table17, "Given ");
+#line 24
+ testRunner.Given("a Resource is created from Samples/Form-General.R5_answer.empty.json with data as" +
+                        " createdResponse", ((string)(null)), table17, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
-                            "Value",
-                            "FhirType"});
-                table18.AddRow(new string[] {
-                            "statusCode",
-                            "422",
-                            ""});
-                table18.AddRow(new string[] {
-                            "issue[0].severity",
-                            "error",
-                            "code"});
-                table18.AddRow(new string[] {
-                            "issue[0].code",
-                            "not-found",
-                            "code"});
-                table18.AddRow(new string[] {
-                            "issue[0].details.text",
-                            "Resource reference \'http://synapxe.sg/Questionnaire/{#uri}_wrong\' is not valid",
-                            "string"});
-#line 24
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table18, "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse with empty answer")]
-        [Xunit.TraitAttribute("FeatureTitle", "QuestionnaireResponse")]
-        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse with empty answer")]
-        public void CreatingANewQuestionnaireResponseWithEmptyAnswer()
-        {
-            string[] tagsOfScenario = ((string[])(null));
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse with empty answer", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 31
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 4
-this.FeatureBackground();
-#line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Path",
-                            "Value",
-                            "FhirType"});
-                table19.AddRow(new string[] {
-                            "questionnaire",
-                            "http://synapxe.sg/Questionnaire/{#uri}",
-                            "uri"});
-#line 32
- testRunner.Given("a Resource is created from Samples/form-general-answer-empty.json with data as cr" +
-                        "eatedResponse", ((string)(null)), table19, "Given ");
-#line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Path",
                             "Value"});
-                table20.AddRow(new string[] {
+                table18.AddRow(new string[] {
                             "statusCode",
                             "422"});
-#line 35
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table20, "Then ");
+#line 27
+ testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table18, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
