@@ -1,0 +1,576 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "http://synapxe.sg/Questionnaire/general-form",
+  "name": "General Form",
+  "title": "General Form",
+  "status": "draft",
+  "item": [
+    {
+      "item": [
+        {
+          "type": "string",
+          "linkId": "182532718165",
+          "text": "My understanding of my current health and any concerns: <br/> (Explore current health; do I have any concerns about my health? Have I had experiences with family or friends who became seriously ill?)",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "349152905402",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions.",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "154158751015",
+          "text": "The following elements of care are important to me:",
+          "required": true
+        }
+      ],
+      "type": "group",
+      "linkId": "9154952085740",
+      "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client"
+    },
+    {
+      "item": [
+        {
+          "item": [
+            {
+              "type": "choice",
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "check-box",
+                        "display": "Check-box"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "560866822374",
+              "text": "They include: ",
+              "enableWhen": [
+                {
+                  "question": "239747400834",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/medical-care-goal",
+                    "code": "B",
+                    "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes  happen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+                  }
+                }
+              ],
+              "repeats": true,
+              "answerOption": [
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B1",
+                    "display": "Persistent infection"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B2",
+                    "display": "Repeated hospitalisations"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B3",
+                    "display": "Multiple operations"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B4",
+                    "display": "Remain in this state for"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B5",
+                    "display": "Persistent symptoms causing pain & suffering"
+                  }
+                },
+                {
+                  "valueCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B6",
+                    "display": "Others"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "linkId": "127209730784",
+              "text": "Pls state duration:",
+              "enableWhen": [
+                {
+                  "question": "560866822374",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B4",
+                    "display": "Remain in this state for"
+                  }
+                }
+              ],
+              "enableBehavior": "any",
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "962938272003",
+              "text": "Others",
+              "enableWhen": [
+                {
+                  "question": "560866822374",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/treatment",
+                    "code": "B6",
+                    "display": "Others"
+                  }
+                }
+              ],
+              "required": true
+            }
+          ],
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "radio-button",
+                    "display": "Radio Button"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "239747400834",
+          "text": "If I have an injury or illness, and my doctors believe that further aggressive treatment will not reverse my medical condition and that I will have a low chance of recovering the ability to make decisions for myself and I would not know who I am, who I am with or where I am, I would prefer the following:",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/medical-care-goal",
+                "code": "A",
+                "display": "Make comfort the goal of my care and do not prolong my life in this condition.  How I live my life means more to me than how long I live."
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/medical-care-goal",
+                "code": "B",
+                "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes  happen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/medical-care-goal",
+                "code": "C",
+                "display": "Unsure"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "group",
+      "linkId": "392128127529",
+      "text": "Goals of medical care"
+    },
+    {
+      "type": "string",
+      "linkId": "251027197316",
+      "text": "Other special requests, preferences or comments:"
+    },
+    {
+      "item": [
+        {
+          "item": [
+            {
+              "type": "date",
+              "linkId": "325160637187",
+              "text": "Date of Signing",
+              "enableWhen": [
+                {
+                  "question": "993322859620",
+                  "operator": "=",
+                  "answerCoding": {
+                    "system": "http://synapxe.sg/ValueSet/yesno",
+                    "code": "yes",
+                    "display": "Yes"
+                  }
+                }
+              ],
+              "required": true
+            },
+            {
+              "type": "string",
+              "linkId": "358678337452",
+              "text": "Reason",
+              "enableWhen": [
+                {
+                  "question": "993322859620",
+                  "operator": "=",
+                  "answerCoding": {
+                    "code": "no",
+                    "display": "No"
+                  }
+                }
+              ],
+              "required": true
+            }
+          ],
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "993322859620",
+          "text": "Patient has signed",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/yesno",
+                "code": "yes",
+                "display": "Yes"
+              },
+              "initialSelected": true
+            },
+            {
+              "valueCoding": {
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "string",
+      "linkId": "160223185214",
+      "text": " Presence of Signature"
+    },
+    {
+      "item": [
+        {
+          "item": [
+            {
+              "item": [
+                {
+                  "type": "string",
+                  "linkId": "675672812812",
+                  "text": "Name of NHS"
+                },
+                {
+                  "type": "string",
+                  "linkId": "215886905491",
+                  "text": "Relationship with patient"
+                },
+                {
+                  "type": "string",
+                  "linkId": "968248952644",
+                  "text": "Contact Number"
+                },
+                {
+                  "type": "string",
+                  "linkId": "679681484407",
+                  "text": "Email"
+                },
+                {
+                  "type": "string",
+                  "linkId": "816737634531",
+                  "text": "Is Primary NHS?"
+                },
+                {
+                  "type": "choice",
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "drop-down",
+                            "display": "Drop down"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "879178164514",
+                  "text": "Presence of signature",
+                  "answerOption": [
+                    {
+                      "valueCoding": {
+                        "system": "http://synapxe.sg/ValueSet/yesno",
+                        "code": "yes",
+                        "display": "Yes"
+                      }
+                    },
+                    {
+                      "valueCoding": {
+                        "system": "http://synapxe.sg/ValueSet/yesno",
+                        "code": "no",
+                        "display": "No"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "string",
+                  "linkId": "861105774169",
+                  "text": "Date of signing",
+                  "enableWhen": [
+                    {
+                      "question": "879178164514",
+                      "operator": "=",
+                      "answerCoding": {
+                        "system": "http://synapxe.sg/ValueSet/yesno",
+                        "code": "yes",
+                        "display": "Yes"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "string",
+                  "linkId": "416279776513",
+                  "text": "Select Reason",
+                  "enableWhen": [
+                    {
+                      "question": "879178164514",
+                      "operator": "=",
+                      "answerCoding": {
+                        "system": "http://synapxe.sg/ValueSet/yesno",
+                        "code": "no",
+                        "display": "No"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "type": "group",
+              "linkId": "656455743240",
+              "text": "NHS details",
+              "repeats": true
+            },
+            {
+              "type": "string",
+              "linkId": "670603867771",
+              "text": "Reason",
+              "required": true
+            }
+          ],
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "drop-down",
+                    "display": "Drop down"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "590614653457",
+          "text": "NHS Identified?",
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/yesno",
+                "code": "yes",
+                "display": "Yes"
+              },
+              "initialSelected": true
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/yesno",
+                "code": "no",
+                "display": "No"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "string",
+      "linkId": "808777067444",
+      "text": " Presence of Signature"
+    },
+    {
+      "item": [
+        {
+          "type": "string",
+          "linkId": "959957827279",
+          "text": "Name (as per NRIC)",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "353600202746",
+          "text": "Last 4 characters of NRIC",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "184592135669",
+          "text": "Designation",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "189866895746",
+          "text": "Institution",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "394467056187",
+          "text": "Email",
+          "required": true
+        },
+        {
+          "type": "date",
+          "linkId": "680072482821",
+          "text": "Date of Signing",
+          "required": true
+        }
+      ],
+      "type": "group",
+      "linkId": "697095347928",
+      "text": " Facilitator Signature"
+    },
+    {
+      "item": [
+        {
+          "type": "string",
+          "linkId": "840567403575",
+          "text": "Phone Numbers"
+        },
+        {
+          "text": "To amend this form, please contact the ACP office at the following phone number(s) during office hours.",
+          "type": "display",
+          "linkId": "389051967449_helpText",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "text": "Help-Button",
+                "coding": [
+                  {
+                    "code": "help",
+                    "display": "Help-Button",
+                    "system": "http://hl7.org/fhir/questionnaire-item-control"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "type": "group",
+      "linkId": "389051967449",
+      "text": " Contact Details of ACP Office"
+    },
+    {
+      "item": [
+        {
+          "type": "choice",
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "check-box",
+                    "display": "Check-box"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "498533948363",
+          "text": "Please Select:",
+          "repeats": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/supporting-doc",
+                "code": "A",
+                "display": "Living Well Statements"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/supporting-doc",
+                "code": "B",
+                "display": "Follow-up Plan for Patient"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/supporting-doc",
+                "code": "C",
+                "display": "Uploaded Manual Form(s)/Discussion Worksheet"
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/ValueSet/supporting-doc",
+                "code": "D",
+                "display": "Others"
+              }
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "linkId": "450534493318",
+          "text": "Please Specify:",
+          "enableWhen": [
+            {
+              "question": "498533948363",
+              "operator": "=",
+              "answerCoding": {
+                "system": "http://synapxe.sg/ValueSet/supporting-doc",
+                "code": "D",
+                "display": "Others"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "group",
+      "linkId": "789044013475",
+      "text": "Other Supporting Documents"
+    }
+  ]
+}
