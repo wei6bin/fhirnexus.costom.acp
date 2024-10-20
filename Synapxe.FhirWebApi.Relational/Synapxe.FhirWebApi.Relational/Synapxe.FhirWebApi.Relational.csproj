@@ -21,7 +21,4 @@
 		<AdditionalFiles Include="Conformance/*.StructureDefinition.json" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Handlers\" />
-	</ItemGroup>
 </Project>

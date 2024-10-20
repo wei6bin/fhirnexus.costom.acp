@@ -1,0 +1,60 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "status": "completed",
+  "authored": "2024-10-19T10:23:22.672Z",
+  "questionnaire": "http://synapxe.sg/Questionnaire/acp_form_general",
+  "item": [
+    {
+      "linkId": "6493348864103",
+      "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client",
+      "item": [
+        {
+          "answer": [
+            {
+              "valueString": "answer 1"
+            }
+          ],
+          "linkId": "930052056193",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions."
+        },
+        {
+          "answer": [
+            {
+              "valueString": "answer 2"
+            }
+          ],
+          "linkId": "4517973500058",
+          "text": "The following elements of care are important to me:"
+        }
+      ]
+    },
+    {
+      "linkId": "733770331359",
+      "text": "Goals of medical care",
+      "item": [
+        {
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/codesystem/goal-choice",
+                "code": "goal-choice-2",
+                "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes\\r\\nhappen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+              }
+            }
+          ],
+          "linkId": "137704110478",
+          "text": "If I have an injury or illness, and my doctors believe that further aggressive treatment will not reverse my medical condition and that I will have a low chance of recovering the ability to make decisions for myself and I would not know who I am, who I am with or where I am, I would prefer the following:"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/5497881",
+    "display": "Abad, Jorge"
+  },
+  "author": {
+    "type": "Practitioner",
+    "reference": "Practitioner/smart-Practitioner-71482713",
+    "display": "Susan Clark"
+  }
+}

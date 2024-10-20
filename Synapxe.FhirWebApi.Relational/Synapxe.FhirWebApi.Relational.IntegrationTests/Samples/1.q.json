@@ -1,0 +1,57 @@
+{
+  "resourceType": "Questionnaire",
+  "url": "http://synapxe.sg/Questionnaire/acp_form_general",
+  "title": "Acp General",
+  "status": "draft",
+  "item": [
+    {
+      "item": [
+        {
+          "type": "string",
+          "linkId": "930052056193",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions.",
+          "required": true
+        },
+        {
+          "type": "string",
+          "linkId": "4517973500058",
+          "text": "The following elements of care are important to me:",
+          "required": true
+        }
+      ],
+      "type": "group",
+      "linkId": "6493348864103",
+      "prefix": "1",
+      "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client"
+    },
+    {
+      "item": [
+        {
+          "type": "coding",
+          "linkId": "137704110478",
+          "text": "If I have an injury or illness, and my doctors believe that further aggressive treatment will not reverse my medical condition and that I will have a low chance of recovering the ability to make decisions for myself and I would not know who I am, who I am with or where I am, I would prefer the following:",
+          "required": true,
+          "answerOption": [
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/codesystem/goal-choice",
+                "code": "goal-choice-1",
+                "display": "Make comfort the goal of my care and do not prolong my life in this condition.\\r\\nHow I live my life means more to me than how long I live."
+              }
+            },
+            {
+              "valueCoding": {
+                "system": "http://synapxe.sg/codesystem/goal-choice",
+                "code": "goal-choice-2",
+                "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes\\r\\nhappen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+              }
+            }
+          ]
+        }
+      ],
+      "type": "group",
+      "linkId": "733770331359",
+      "text": "Goals of medical care"
+    }
+  ]
+}
