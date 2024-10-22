@@ -1,9 +1,10 @@
 {
   "resourceType": "Questionnaire",
-  "url": "http://synapxe.sg/Questionnaire/general-form",
+  "url": "http://fhir.synapxe.sg/Questionnaire/acp/form_general",
+  "version": "1.0.0",
   "name": "General_Form",
   "title": "General Form",
-  "status": "draft",
+  "status": "active",
   "item": [
     {
       "item": [

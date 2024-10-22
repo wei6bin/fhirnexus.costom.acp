@@ -14,6 +14,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
             Id = entity.Id,
             Status = EnumUtility.ParseLiteral<PublicationStatus>(entity.Status),
             Title = entity.Title,
+            Version = entity.Version,
             Meta = new Meta
             {
                 LastUpdated = entity.LastUpdated,
@@ -89,6 +90,7 @@ public class QuestionnaireDataMapper : IFhirDataMapper<QuestionnaireEntity, Ques
         var entity = new QuestionnaireEntity
         {
             Id = resource.Id,
+            Version = resource.Version,
             VersionId = int.TryParse(resource.VersionId, out var vid) ? vid : 0,
             LastUpdated = resource.Meta?.LastUpdated,
             Status = resource.Status.GetLiteral(),
