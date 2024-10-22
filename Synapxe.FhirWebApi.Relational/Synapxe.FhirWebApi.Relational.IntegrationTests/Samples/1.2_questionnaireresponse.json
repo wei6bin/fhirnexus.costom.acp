@@ -36,7 +36,6 @@
           "answer": [
             {
               "valueCoding": {
-                "system": "http://synapxe.sg/codesystem/goal-choice",
                 "code": "goal-choice-2",
                 "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes\\r\\nhappen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
               }

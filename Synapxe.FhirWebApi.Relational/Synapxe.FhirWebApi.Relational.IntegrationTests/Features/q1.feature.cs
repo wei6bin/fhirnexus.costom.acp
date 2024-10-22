@@ -99,7 +99,8 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
                         "http://synapxe.sg/Questionnaire/{#uri}",
                         "uri"});
 #line 8
- testRunner.And("a Resource is created from Samples/1.q.json with data as createdQuestionnaire", ((string)(null)), table5, "And ");
+ testRunner.And("a Resource is created from Samples/1.1_questionnaire.json with data as createdQue" +
+                    "stionnaire", ((string)(null)), table5, "And ");
 #line hidden
         }
         
@@ -138,16 +139,17 @@ this.FeatureBackground();
                             "http://synapxe.sg/Questionnaire/{#uri}",
                             "uri"});
 #line 13
- testRunner.Given("a Resource is created from Samples/1.a.json with data as createdResponse", ((string)(null)), table6, "Given ");
+ testRunner.Given("a Resource is created from Samples/1.2_questionnaireresponse.json with data as cr" +
+                        "eatedResponse", ((string)(null)), table6, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value"});
                 table7.AddRow(new string[] {
                             "statusCode",
-                            "422"});
+                            "201"});
 #line 16
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table7, "Then ");
+ testRunner.Then("createdResponse is a Fhir QuestionnaireResponse with data", ((string)(null)), table7, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
