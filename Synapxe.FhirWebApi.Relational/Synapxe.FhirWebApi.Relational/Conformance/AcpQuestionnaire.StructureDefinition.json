@@ -67,6 +67,11 @@
         "max": "0"
       },
       {
+        "id": "Questionnaire.version",
+        "path": "Questionnaire.version",
+        "min": 1
+      },
+      {
         "id": "Questionnaire.versionAlgorithm[x]",
         "path": "Questionnaire.versionAlgorithm[x]",
         "max": "0"

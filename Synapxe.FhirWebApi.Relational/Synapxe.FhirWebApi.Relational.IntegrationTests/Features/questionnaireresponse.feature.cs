@@ -81,26 +81,26 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
         {
 #line 4
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "HeaderName",
                         "Value"});
-            table15.AddRow(new string[] {
+            table21.AddRow(new string[] {
                         "X-Ihis-SourceApplication",
                         "testapp"});
 #line 5
- testRunner.Given("a new HttpClient as httpClient", ((string)(null)), table15, "Given ");
+ testRunner.Given("a new HttpClient as httpClient", ((string)(null)), table21, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "Path",
                         "Value",
                         "FhirType"});
-            table16.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "url",
                         "http://synapxe.sg/Questionnaire/{#uri}",
                         "uri"});
 #line 8
  testRunner.And("a Resource is created from Samples/Form-General.R5.json with data as createdQuest" +
-                    "ionnaire", ((string)(null)), table16, "And ");
+                    "ionnaire", ((string)(null)), table22, "And ");
 #line hidden
         }
         
@@ -130,40 +130,40 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value",
                             "FhirType"});
-                table17.AddRow(new string[] {
+                table23.AddRow(new string[] {
                             "questionnaire",
                             "http://synapxe.sg/Questionnaire/{#uri}_wrong",
                             "uri"});
 #line 13
  testRunner.Given("a Resource is created from Samples/Form-General.R5_answer.empty.json with data as" +
-                        " createdResponse", ((string)(null)), table17, "Given ");
+                        " createdResponse", ((string)(null)), table23, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value",
                             "FhirType"});
-                table18.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "statusCode",
                             "422",
                             ""});
-                table18.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "issue[0].severity",
                             "error",
                             "code"});
-                table18.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "issue[0].code",
                             "not-found",
                             "code"});
-                table18.AddRow(new string[] {
+                table24.AddRow(new string[] {
                             "issue[0].details.text",
                             "Resource reference \'http://synapxe.sg/Questionnaire/{#uri}_wrong\' is not valid",
                             "string"});
 #line 16
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table18, "Then ");
+ testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table24, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -190,26 +190,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value",
                             "FhirType"});
-                table19.AddRow(new string[] {
+                table25.AddRow(new string[] {
                             "questionnaire",
                             "http://synapxe.sg/Questionnaire/{#uri}",
                             "uri"});
 #line 24
  testRunner.Given("a Resource is created from Samples/Form-General.R5_answer.empty.json with data as" +
-                        " createdResponse", ((string)(null)), table19, "Given ");
+                        " createdResponse", ((string)(null)), table25, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value"});
-                table20.AddRow(new string[] {
+                table26.AddRow(new string[] {
                             "statusCode",
                             "422"});
 #line 27
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table20, "Then ");
+ testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table26, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

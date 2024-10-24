@@ -1,0 +1,62 @@
+{
+  "resourceType": "StructureDefinition",
+  "url": "https://example.org/fhir/StructureDefinition/MyPatient",
+  "name": "AcpPatient",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.name",
+        "path": "Patient.name",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.name.extension",
+        "path": "Patient.name.extension",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.use",
+        "path": "Patient.name.use",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.text",
+        "path": "Patient.name.text",
+        "min": 1
+      },
+      {
+        "id": "Patient.name.family",
+        "path": "Patient.name.family",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.given",
+        "path": "Patient.name.given",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.prefix",
+        "path": "Patient.name.prefix",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.suffix",
+        "path": "Patient.name.suffix",
+        "max": "0"
+      },
+      {
+        "id": "Patient.name.period",
+        "path": "Patient.name.period",
+        "max": "0"
+      }
+    ]
+  }
+}

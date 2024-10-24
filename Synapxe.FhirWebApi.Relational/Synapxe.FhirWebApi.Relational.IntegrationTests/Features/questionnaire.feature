@@ -32,4 +32,3 @@ Scenario: Search a newly created general form Questionnaire by url, returns the 
 		| Path       | Value | FhirType |
 		| statusCode | 200   |          |
 		| total      | 1     | int      |
-
