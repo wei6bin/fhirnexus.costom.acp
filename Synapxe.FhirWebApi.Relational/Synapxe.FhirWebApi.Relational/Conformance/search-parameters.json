@@ -29,6 +29,30 @@
           "QuestionnaireResponse"
         ]
       }
+    },
+    {
+      "fullUrl": "https://fhir.synapxe.sg/SearchParameter/CarePlan-contributor",
+      "resource": {
+        "resourceType": "SearchParameter",
+        "id": "CarePlan-contributor",
+        "url": "https://fhir.synapxe.sg/SearchParameter/CarePlan-contributor",
+        "version": "0.1.0",
+        "name": "CarePlan-contributor",
+        "status": "draft",
+        "experimental": false,
+        "date": "2021-01-01T09:29:23+11:00",
+        "publisher": "Integrated Health Information Systems Pte Ltd (IHiS)",
+        "description": "The contributor of the CarePlan",
+        "code": "contributor",
+        "base": [
+          "CarePlan"
+        ],
+        "type": "reference",
+        "expression": "CarePlan.contributor.where(resolve() is Practitioner)",
+        "target": [
+          "Practitioner"
+        ]
+      }
     }
   ]
 }

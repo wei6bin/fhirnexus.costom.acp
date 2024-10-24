@@ -1,6 +1,7 @@
 {
   "resourceType": "StructureDefinition",
-  "url": "https://example.org/fhir/StructureDefinition/MyPatient",
+  "id": "acppatient",
+  "url": "https://fhir.synapxe.sg/StructureDefinition/AcpPatient",
   "name": "AcpPatient",
   "status": "draft",
   "fhirVersion": "5.0.0",
@@ -55,6 +56,27 @@
       {
         "id": "Patient.name.period",
         "path": "Patient.name.period",
+        "max": "0"
+      },
+      {
+        "id": "Patient.address",
+        "path": "Patient.address",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "Patient.address.extension",
+        "path": "Patient.address.extension",
+        "max": "0"
+      },
+      {
+        "id": "Patient.address.postalCode",
+        "path": "Patient.address.postalCode",
+        "min": 1
+      },
+      {
+        "id": "Patient.address.period",
+        "path": "Patient.address.period",
         "max": "0"
       }
     ]

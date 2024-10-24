@@ -81,14 +81,14 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
         {
 #line 4
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "HeaderName",
                         "Value"});
-            table16.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "X-Ihis-SourceApplication",
                         "testapp"});
 #line 5
- testRunner.Given("a new HttpClient as httpClient", ((string)(null)), table16, "Given ");
+ testRunner.Given("a new HttpClient as httpClient", ((string)(null)), table18, "Given ");
 #line hidden
         }
         
@@ -125,14 +125,14 @@ this.FeatureBackground();
 #line 11
  testRunner.When("getting Questionnaire/{createdResource.Id} as readResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value"});
-                table17.AddRow(new string[] {
+                table19.AddRow(new string[] {
                             "statusCode",
                             "201"});
 #line 12
- testRunner.Then("createdResource is a Fhir Questionnaire with data", ((string)(null)), table17, "Then ");
+ testRunner.Then("createdResource is a Fhir Questionnaire with data", ((string)(null)), table19, "Then ");
 #line hidden
 #line 15
  testRunner.And("createdResource and readResource are exactly the same", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -171,14 +171,14 @@ this.FeatureBackground();
 #line 19
  testRunner.When("getting Questionnaire/{createdResource.Id} as readResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value"});
-                table18.AddRow(new string[] {
+                table20.AddRow(new string[] {
                             "statusCode",
                             "201"});
 #line 20
- testRunner.Then("createdResource is a Fhir Questionnaire with data", ((string)(null)), table18, "Then ");
+ testRunner.Then("createdResource is a Fhir Questionnaire with data", ((string)(null)), table20, "Then ");
 #line hidden
 #line 23
  testRunner.And("createdResource and readResource are exactly the same", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -211,17 +211,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value",
                             "FhirType"});
-                table19.AddRow(new string[] {
+                table21.AddRow(new string[] {
                             "url",
                             "http://synapxe.sg/Questionnaire/{#uri}",
                             "uri"});
 #line 26
  testRunner.Given("a Resource is created from Samples/form-general-simple-version.json with data as " +
-                        "createdResource", ((string)(null)), table19, "Given ");
+                        "createdResource", ((string)(null)), table21, "Given ");
 #line hidden
 #line 29
  testRunner.When("getting Questionnaire?url=http://synapxe.sg/Questionnaire/{#uri}&_total=accurate&" +
@@ -230,20 +230,20 @@ this.FeatureBackground();
 #line 30
  testRunner.Then("searchBundle is a Fhir Bundle which contains createdResource", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
                             "Value",
                             "FhirType"});
-                table20.AddRow(new string[] {
+                table22.AddRow(new string[] {
                             "statusCode",
                             "200",
                             ""});
-                table20.AddRow(new string[] {
+                table22.AddRow(new string[] {
                             "total",
                             "1",
                             "int"});
 #line 31
- testRunner.Then("searchBundle is a Fhir Bundle with data", ((string)(null)), table20, "Then ");
+ testRunner.Then("searchBundle is a Fhir Bundle with data", ((string)(null)), table22, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -1,0 +1,36 @@
+@baseUrl=https://localhost:7143
+@applicationId=test-app
+
+POST {{baseUrl}}/CarePlan
+X-Ihis-SourceApplication: {{applicationId}}
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "CarePlan",
+  "status": "active",
+  "intent": "plan",
+  "title": "Care Plan with Assessment Responses",
+  "description": "Care plan incorporating patient assessment responses",
+  "subject": {
+    "reference": "Patient/5497881"
+  },
+  "created": "2024-10-24",
+  "contributor": [
+    {
+      "reference": "Practitioner/1"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "QuestionnaireResponse/00C8EA5991E44E78B996D526708E99FF"
+    }
+  ]
+}
+
+###
+GET {{baseUrl}}/CarePlan?patient=5497881
+X-Ihis-SourceApplication: {{applicationId}}
+
+###
+GET {{baseUrl}}/CarePlan?contributor=1&_include=CarePlan:supportingInfo:QuestionnaireResponse
+X-Ihis-SourceApplication: {{applicationId}}

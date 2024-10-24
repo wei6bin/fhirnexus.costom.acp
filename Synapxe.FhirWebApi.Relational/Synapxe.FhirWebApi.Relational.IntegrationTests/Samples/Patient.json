@@ -1,0 +1,27 @@
+{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "system": "https://fhir.synapxe.sg/NamingSystem/nric",
+      "value": "S1234567D"
+    }
+  ],
+  "name": [
+    {
+      "text": "Doe Jhon"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2000-11-12",
+  "address": [
+    {
+      "line": [
+        "123 Main St",
+        "Apt 4B",
+        "Springfield",
+        "IL"
+      ],
+      "postalCode": "544661"
+    }
+  ]
+}

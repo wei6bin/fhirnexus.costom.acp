@@ -1,6 +1,6 @@
 {
   "resourceType": "Questionnaire",
-  "url": "http://fhir.synapxe.sg/Questionnaire/acp/form_general",
+  "url": "https://fhir.synapxe.sg/Questionnaire/acp_form_general",
   "version": "1.0.0",
   "name": "General_Form",
   "title": "Acp General",

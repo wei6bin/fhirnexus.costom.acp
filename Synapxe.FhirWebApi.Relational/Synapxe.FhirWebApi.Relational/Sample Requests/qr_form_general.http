@@ -14,70 +14,60 @@ Content-Type: application/fhir+json
 
 {
   "resourceType": "QuestionnaireResponse",
-  "questionnaire": "http://synapxe.sg/Questionnaire/027219763893426B943795F1A3163671",
   "status": "completed",
-  "subject": {
-    "reference": "Patient/5497583"
-  },
-  "authored": "2024-10-18T04:21:39.190Z",
-  "author": {
-    "type": "Practitioner",
-    "reference": "Practitioner/smart-Practitioner-71482713",
-    "display": "Susan Clark"
-  },
+  "authored": "2024-10-19T10:23:22.672Z",
+  "questionnaire": "https://fhir.synapxe.sg/Questionnaire/acp_form_general",
   "item": [
     {
-      "linkId": "st-1",
+      "linkId": "6493348864103",
       "text": "Summary of Activities, Values and Elements of Care Important to Patient/Client",
       "item": [
         {
-          "linkId": "fq-1.q-2",
-          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions.",
-          "item": [
+          "answer": [
             {
-              "linkId": "fq-1.q-2.qo-2",
-              "answer": [
-                {
-                  "valueString": "test answer 1"
-                }
-              ]
+              "valueString": "answer 1"
             }
-          ]
+          ],
+          "linkId": "930052056193",
+          "text": "The following activities are important for me to live well. These are the things that give my life meaning. Please use these values when making healthcare decisions if I lose mental capacity in the future to make my own healthcare decisions."
         },
         {
-          "linkId": "fq-2.q-3",
-          "text": "The following elements of care are important to me:",
-          "item": [
+          "answer": [
             {
-              "linkId": "fq-2.q-3.qo-3",
-              "answer": [
-                {
-                  "valueString": "test answer 2"
-                }
-              ]
+              "valueString": "answer 2"
             }
-          ]
+          ],
+          "linkId": "4517973500058",
+          "text": "The following elements of care are important to me:"
         }
       ]
     },
     {
-      "linkId": "st-3",
-      "text": "Other special requests, preferences or comments:",
+      "linkId": "733770331359",
+      "text": "Goals of medical care",
       "item": [
         {
-          "linkId": "fq-18.q-19",
-          "item": [
+          "answer": [
             {
-              "linkId": "fq-18.q-19.qo-62",
-              "answer": [
-                {
-                  "valueString": "yes"
-                }
-              ]
+              "valueCoding": {
+                "code": "goal-choice-2",
+                "display": "Continue to provide all necessary life-sustaining treatment until the following outcomes\\r\\nhappen to me which I find unacceptable (may refer to length of time, more complications, discomfort, or burden on family). They include:"
+              }
             }
-          ]
+          ],
+          "linkId": "137704110478",
+          "text": "If I have an injury or illness, and my doctors believe that further aggressive treatment will not reverse my medical condition and that I will have a low chance of recovering the ability to make decisions for myself and I would not know who I am, who I am with or where I am, I would prefer the following:"
         }
       ]
     }
-  ]
+  ],
+  "subject": {
+    "reference": "Patient/5497881",
+    "display": "Abad, Jorge"
+  },
+  "author": {
+    "type": "Practitioner",
+    "reference": "Practitioner/smart-Practitioner-71482713",
+    "display": "Susan Clark"
+  }
 }

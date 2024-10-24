@@ -13,6 +13,7 @@ public class FhirEntityDbContext : DbContext
     {
     }
 
+    public DbSet<PatientEntity> Patient => Set<PatientEntity>();
     public DbSet<CarePlanEntity> CarePlan => Set<CarePlanEntity>();
     public DbSet<QuestionnaireEntity> Questionnaire => Set<QuestionnaireEntity>();
     public DbSet<QuestionnaireResponseEntity> QuestionnaireResponse => Set<QuestionnaireResponseEntity>();

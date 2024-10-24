@@ -2,7 +2,7 @@
   "resourceType": "QuestionnaireResponse",
   "status": "completed",
   "authored": "2024-10-19T10:23:22.672Z",
-  "questionnaire": "http://synapxe.sg/Questionnaire/acp_form_general",
+  "questionnaire": "https://fhir.synapxe.sg/Questionnaire/acp_form_general",
   "item": [
     {
       "linkId": "6493348864103",

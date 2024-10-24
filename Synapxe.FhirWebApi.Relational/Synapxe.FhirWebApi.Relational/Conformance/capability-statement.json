@@ -64,6 +64,37 @@
           "versioning": "no-version"
         },
         {
+          "type": "Patient",
+          "profile": "StructureDefinition/acppatient",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "history-instance"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "patch"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "versioning": "versioned"
+        },
+        {
           "type": "CarePlan",
           "profile": "StructureDefinition/acpcareplan",
           "interaction": [
@@ -97,6 +128,12 @@
               "name": "supportingInfo",
               "documentation": "The supporting info of the CarePlan",
               "definition": "https://fhir.synapxe.sg/SearchParameter/CarePlan-supportingInfo",
+              "type": "reference"
+            },
+            {
+              "name": "contributor",
+              "documentation": "The contributor info of the CarePlan",
+              "definition": "https://fhir.synapxe.sg/SearchParameter/CarePlan-contributor",
               "type": "reference"
             }
           ],
