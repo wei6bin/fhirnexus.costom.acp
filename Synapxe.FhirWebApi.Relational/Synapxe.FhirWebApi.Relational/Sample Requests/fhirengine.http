@@ -5,4 +5,4 @@ GET {{baseUrl}}/metadata
 X-Ihis-SourceApplication: {{applicationId}}
       
 ### Health Check Request:
-GET {{baseUrl}}/health
+GET {{baseUrl}}/health?_pretty=true

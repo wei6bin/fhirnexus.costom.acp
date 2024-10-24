@@ -99,7 +99,7 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
                         "http://synapxe.sg/Questionnaire/{#uri}",
                         "uri"});
 #line 8
- testRunner.And("a Resource is created from Samples/1.q.json with data as createdQuestionnaire", ((string)(null)), table5, "And ");
+ testRunner.And("a Resource is created from Samples/1.1_q.json with data as createdQuestionnaire", ((string)(null)), table5, "And ");
 #line hidden
         }
         
@@ -108,14 +108,17 @@ namespace Synapxe.FhirWebApi.Relational.IntegrationTests.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse")]
+        [Xunit.SkippableFactAttribute(DisplayName="Creating a new QuestionnaireResponse and a new CarePlan with QuestionnaireRespons" +
+            "e id linked at supportingInfo")]
         [Xunit.TraitAttribute("FeatureTitle", "q1")]
-        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse")]
-        public void CreatingANewQuestionnaireResponse()
+        [Xunit.TraitAttribute("Description", "Creating a new QuestionnaireResponse and a new CarePlan with QuestionnaireRespons" +
+            "e id linked at supportingInfo")]
+        public void CreatingANewQuestionnaireResponseAndANewCarePlanWithQuestionnaireResponseIdLinkedAtSupportingInfo()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Creating a new QuestionnaireResponse and a new CarePlan with QuestionnaireRespons" +
+                    "e id linked at supportingInfo", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -138,16 +141,42 @@ this.FeatureBackground();
                             "http://synapxe.sg/Questionnaire/{#uri}",
                             "uri"});
 #line 13
- testRunner.Given("a Resource is created from Samples/1.a.json with data as createdResponse", ((string)(null)), table6, "Given ");
+ testRunner.Given("a Resource is created from Samples/1.2_a.json with data as createdResponse", ((string)(null)), table6, "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "Path",
-                            "Value"});
+                            "Value",
+                            "FhirType"});
                 table7.AddRow(new string[] {
-                            "statusCode",
-                            "422"});
+                            "supportingInfo[0].reference",
+                            "QuestionnaireResponse/{createdResponse.Id}",
+                            "uri"});
 #line 16
- testRunner.Then("createdResponse is a Fhir OperationOutcome with data", ((string)(null)), table7, "Then ");
+ testRunner.And("a Resource is created from Samples/CarePlan.json with data as createdCarePlan", ((string)(null)), table7, "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Path",
+                            "Value"});
+                table8.AddRow(new string[] {
+                            "statusCode",
+                            "201"});
+#line 19
+ testRunner.Then("createdResponse is a Fhir QuestionnaireResponse with data", ((string)(null)), table8, "Then ");
+#line hidden
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Path",
+                            "Value",
+                            "FhirType"});
+                table9.AddRow(new string[] {
+                            "statusCode",
+                            "201",
+                            ""});
+                table9.AddRow(new string[] {
+                            "supportingInfo[0].reference",
+                            "QuestionnaireResponse/{createdResponse.Id}",
+                            "uri"});
+#line 22
+ testRunner.And("createdCarePlan is a Fhir CarePlan with data", ((string)(null)), table9, "And ");
 #line hidden
             }
             this.ScenarioCleanup();

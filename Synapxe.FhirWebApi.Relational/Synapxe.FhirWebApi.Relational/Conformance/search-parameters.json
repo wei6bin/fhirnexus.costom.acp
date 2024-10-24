@@ -1,0 +1,34 @@
+{
+  "resourceType": "Bundle",
+  "id": "searchParameters",
+  "meta": {
+    "lastUpdated": "2021-05-05T08:04:45.3420489+00:00"
+  },
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "https://fhir.synapxe.sg/SearchParameter/CarePlan-supportingInfo",
+      "resource": {
+        "resourceType": "SearchParameter",
+        "id": "CarePlan-supportingInfo",
+        "url": "https://fhir.synapxe.sg/SearchParameter/CarePlan-supportingInfo",
+        "version": "0.1.0",
+        "name": "CarePlan-supportingInfo",
+        "status": "draft",
+        "experimental": false,
+        "date": "2021-01-01T09:29:23+11:00",
+        "publisher": "Integrated Health Information Systems Pte Ltd (IHiS)",
+        "description": "The supportingInfo of the CarePlan",
+        "code": "supportingInfo",
+        "base": [
+          "CarePlan"
+        ],
+        "type": "reference",
+        "expression": "CarePlan.supportingInfo.where(resolve() is QuestionnaireResponse)",
+        "target": [
+          "QuestionnaireResponse"
+        ]
+      }
+    }
+  ]
+}

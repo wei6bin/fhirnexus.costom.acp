@@ -1,0 +1,52 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "acpcarePlan",
+  "url": "https://fhir.synapxe.sg/StructureDefinition/AcpCarePlan",
+  "name": "AcpCarePlan",
+  "status": "draft",
+  "fhirVersion": "5.0.0",
+  "kind": "resource",
+  "abstract": false,
+  "type": "CarePlan",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/CarePlan",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "CarePlan.basedOn",
+        "path": "CarePlan.basedOn",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.replaces",
+        "path": "CarePlan.replaces",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.partOf",
+        "path": "CarePlan.partOf",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.careTeam",
+        "path": "CarePlan.careTeam",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.addresses",
+        "path": "CarePlan.addresses",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.goal",
+        "path": "CarePlan.goal",
+        "max": "0"
+      },
+      {
+        "id": "CarePlan.activity",
+        "path": "CarePlan.activity",
+        "max": "0"
+      }
+    ]
+  }
+}

@@ -64,6 +64,45 @@
           "versioning": "no-version"
         },
         {
+          "type": "CarePlan",
+          "profile": "StructureDefinition/acpcareplan",
+          "interaction": [
+            {
+              "code": "read"
+            },
+            {
+              "code": "vread"
+            },
+            {
+              "code": "history-instance"
+            },
+            {
+              "code": "history-type"
+            },
+            {
+              "code": "create"
+            },
+            {
+              "code": "update"
+            },
+            {
+              "code": "patch"
+            },
+            {
+              "code": "search-type"
+            }
+          ],
+          "searchParam": [
+            {
+              "name": "supportingInfo",
+              "documentation": "The supporting info of the CarePlan",
+              "definition": "https://fhir.synapxe.sg/SearchParameter/CarePlan-supportingInfo",
+              "type": "reference"
+            }
+          ],
+          "versioning": "versioned"
+        },
+        {
           "type": "Questionnaire",
           "profile": "StructureDefinition/acpquestionnaire",
           "interaction": [
